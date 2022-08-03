@@ -30,7 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="./asset/img/logo_rdm.png" alt="Logo" width="80" height="80">
+    <img src="asset/img/logo_rdm.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">README-SBS</h3>
