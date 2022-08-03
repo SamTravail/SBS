@@ -1,52 +1,19 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![MIT License][license-shield]][license-url]
-
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
     <a href="https://github.com/SamTravail/SBS">
-    <img src="asset/img/logo_rdm.png" alt="Logo" width="80" height="80">
+    <img src="asset/img/logo_rdm.png" alt="logo_rdm" width="80" height="80">
   </a>
 
-  <h3 align="center">README-SBS</h3>
+  <h3 align="center">README</h3>
 <br>
 </div>
-
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -68,43 +35,82 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Votre client, un célèbre influenceur de la région de Sous-Parsat dans la Creuse,
+souhaite que vous lui développiez une application lui permettant de publier des articles et autres
+contenus.
+<br><br>
+Malgré vos explications acharnées pour lui expliquer qu’un WordPress fera très
+bien l’affaire, ledit client est prêt à vous payer le développement de son propre CMS parce
+que c’est son projet !
+<br><br>
+Bien que plus à l’aise dans la communication digitale pour vendre l’eau de ses poissons
+rouges et poster des selfies en débardeur pour ses fans du Club des Cheveux d’Argent de
+Saint-Avit-le-Pauvre, votre client vous a néanmoins communiqué un cahier des charges
+fonctionnel.
+<br><br>
+**Fonctionnalités à développer**
+<br>
+1. **Fonctionnalités du site**<br>
+   Le site a pour vocation de permettre la rédaction de contenus et leur commentaire
+   par des utilisateurs qui auront nécessairement un compte et des niveaux d’accès
+   limitant leurs actions possibles.<br>
+   Chaque opération liée à des (comptes) utilisateurs devra faire l’objet d’un envoi de
+   mail au compte concerné.<br>
+   N’importe quel utilisateur peut s’inscrire sur le site et aura par défaut le rôle
+   “utilisateur inscrit”.<br>
+   Seul l’administrateur aura la possibilité de modifier le rôle d’un utilisateur. L’utilisateur
+   en question sera notifié par mail du changement de situation de son compte.<br>
+   L’administrateur et les rédacteurs devront pouvoir visualiser les notes affectées aux
+   articles (nombre de notes et moyenne des notes).<br><br>
+2. **Gestion des rôles**<br>
+   Votre client souhaite avoir la possibilité de gérer les niveaux de compte suivante :
+   * **Visiteur**<br>
+   Pas de compte en soi, est en capacité de lire les articles publics, mais ne
+   peut ni leur affecter une note, ni écrire un commentaire, ni répondre à un
+   commentaire ;<br>
+   * **Utilisateur inscrit**<br>
+   Possède un compte, peut mettre une note à un article, rédiger un
+   commentaire et répondre à un commentaire<br>
+   * **Modérateur**<br>
+   A les mêmes droit que l’utilisateur inscrit, mais peut en plus modifier ou
+   supprimer un commentaire ou une réponse à un commentaire d’un autre
+   utilisateur (mais pas d’un autre modérateur)
+   * **Rédacteur**<br>
+   A les mêmes droits que le modérateur, mais peut rédiger et publier des
+   articles.
+   * **Administrateur**<br>
+   Possède la totalité des droits, incluant l’ajout, la suppression, la gestion ou le
+   bannissement temporaire d’un utilisateur.<br><br>
+3. **Interface utilisateur**<br>
+   Interface par défaut pour chaque catégorie d’utilisateurs, intégrant les fonctionnalités
+   suivantes :
+   * navigation classique (accueil, mentions légales, formulaire de contact,
+   formulaire d’inscription)
+   * inscription
+   * connexion/déconnexion
+   * afficher les derniers articles
+   * noter un article (si connecté)
+   * afficher les catégories des articles
+   * afficher les articles par catégories (un article peut être dans plusieurs
+   catégories).<br><br>
+4. **Interface administrateur**<br>
+   Cette interface sera accessible aux modérateurs, rédacteurs et administrateurs.<br>
+   Les fonctionnalités seront à afficher en fonction du rôle de l’utilisateur connecté.<br>
+   Outre les fonctions classiques de CRUD, les fonctionnalités seront à proposer en
+   fonction des droits des utilisateurs.<br>
+   * CRUD utilisateurs avec affectation des droits
+   * CRUD de contenus en fonction des droits
+   * gestion des commentaires.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To connect the SQL database :
+* **user** : ' root '
+* **mdp** : ' '
 
 ### Prerequisites
 
@@ -119,8 +125,6 @@ This is the list things you need to use the blog and how to install them.
   ```  
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Clone the repo
    ```sh
@@ -155,8 +159,6 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
