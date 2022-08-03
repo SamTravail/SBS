@@ -1,66 +1,19 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/SamTravail/SBS">
-    <img src="img/logo_rdm.png" alt="Logo" width="80" height="80">
+    <a href="https://github.com/SamTravail/SBS">
+    <img src="asset/img/logo_rdm.png" alt="logo_rdm" width="80" height="80">
   </a>
 
-  <h3 align="center">README-SBS</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
+  <h3 align="center">README</h3>
+<br>
 </div>
-
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -70,7 +23,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -83,71 +35,112 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Votre client, un célèbre influenceur de la région de Sous-Parsat dans la Creuse,
+souhaite que vous lui développiez une application lui permettant de publier des articles et autres
+contenus.
+<br><br>
+Malgré vos explications acharnées pour lui expliquer qu’un WordPress fera très
+bien l’affaire, ledit client est prêt à vous payer le développement de son propre CMS parce
+que c’est son projet !
+<br><br>
+Bien que plus à l’aise dans la communication digitale pour vendre l’eau de ses poissons
+rouges et poster des selfies en débardeur pour ses fans du Club des Cheveux d’Argent de
+Saint-Avit-le-Pauvre, votre client vous a néanmoins communiqué un cahier des charges
+fonctionnel.
+<br><br>
+**Fonctionnalités à développer**
+<br>
+1. **Fonctionnalités du site**<br>
+   Le site a pour vocation de permettre la rédaction de contenus et leur commentaire
+   par des utilisateurs qui auront nécessairement un compte et des niveaux d’accès
+   limitant leurs actions possibles.<br>
+   Chaque opération liée à des (comptes) utilisateurs devra faire l’objet d’un envoi de
+   mail au compte concerné.<br>
+   N’importe quel utilisateur peut s’inscrire sur le site et aura par défaut le rôle
+   “utilisateur inscrit”.<br>
+   Seul l’administrateur aura la possibilité de modifier le rôle d’un utilisateur. L’utilisateur
+   en question sera notifié par mail du changement de situation de son compte.<br>
+   L’administrateur et les rédacteurs devront pouvoir visualiser les notes affectées aux
+   articles (nombre de notes et moyenne des notes).<br><br>
+2. **Gestion des rôles**<br>
+   Votre client souhaite avoir la possibilité de gérer les niveaux de compte suivante :
+   * **Visiteur**<br>
+   Pas de compte en soi, est en capacité de lire les articles publics, mais ne
+   peut ni leur affecter une note, ni écrire un commentaire, ni répondre à un
+   commentaire ;<br>
+   * **Utilisateur inscrit**<br>
+   Possède un compte, peut mettre une note à un article, rédiger un
+   commentaire et répondre à un commentaire<br>
+   * **Modérateur**<br>
+   A les mêmes droit que l’utilisateur inscrit, mais peut en plus modifier ou
+   supprimer un commentaire ou une réponse à un commentaire d’un autre
+   utilisateur (mais pas d’un autre modérateur)
+   * **Rédacteur**<br>
+   A les mêmes droits que le modérateur, mais peut rédiger et publier des
+   articles.
+   * **Administrateur**<br>
+   Possède la totalité des droits, incluant l’ajout, la suppression, la gestion ou le
+   bannissement temporaire d’un utilisateur.<br><br>
+3. **Interface utilisateur**<br>
+   Interface par défaut pour chaque catégorie d’utilisateurs, intégrant les fonctionnalités
+   suivantes :
+   * navigation classique (accueil, mentions légales, formulaire de contact,
+   formulaire d’inscription)
+   * inscription
+   * connexion/déconnexion
+   * afficher les derniers articles
+   * noter un article (si connecté)
+   * afficher les catégories des articles
+   * afficher les articles par catégories (un article peut être dans plusieurs
+   catégories).<br><br>
+4. **Interface administrateur**<br>
+   Cette interface sera accessible aux modérateurs, rédacteurs et administrateurs.<br>
+   Les fonctionnalités seront à afficher en fonction du rôle de l’utilisateur connecté.<br>
+   Outre les fonctions classiques de CRUD, les fonctionnalités seront à proposer en
+   fonction des droits des utilisateurs.<br>
+   * CRUD utilisateurs avec affectation des droits
+   * CRUD de contenus en fonction des droits
+   * gestion des commentaires.
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To connect the SQL database :
+* **user** : ' root '
+* **mdp** : ' '
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+This is the list things you need to use the blog and how to install them.
+* MySQL Workbench
   ```sh
-  npm install npm@latest -g
+  https://dev.mysql.com/downloads/workbench/
   ```
+* xampp
+  ```sh
+  https://www.apachefriends.org/fr/index.html
+  ```  
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+1. Clone the repo
+   ```sh
+   git https://github.com/SamTravail/SBS
+   ```
+2. Install MySQL Workbench
+   ```
+   // Install whith default option
+   // Douwnload and open the 'modelisation_SBS.mwb' from _documents
+   ```
+3. Install xampp
+   ```
+   // After xampp was installed whith default option,
+   // import the base from _documents into your phpMyAdmin
+   ```
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,36 +151,14 @@ _Below is an example of how you can instruct your audience on installing and set
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -211,9 +182,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Sam - contact@sbs.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/SamTravail/SBS](https://github.com/SamTravail/SBS)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -221,8 +192,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
@@ -240,18 +209,11 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/SamTravail/SBS/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[forks-url]: https://github.com/SamTravail/SBS/network/members
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[license-url]: https://github.com/SamTravail/SBS/blob/master/LICENSE.txt
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
