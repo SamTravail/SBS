@@ -63,9 +63,6 @@ if(!empty($_POST['submitted'])) {
        $success = true;
     }
 }
-debug($_POST);
-debug($errors);
-
 include('inc/header-back.php'); ?>
 
     <h1>Edition d'un Article</h1>
@@ -84,14 +81,14 @@ include('inc/header-back.php'); ?>
         
         <?php
         $status = array(
-            'draft' => 'brouillon',
+            'draft' => 'Brouillon',
             'publish' => 'Publié'
         );
 
         ?>
         <label for="status">Status</label>
         <select name="status">
-            <option value="">---------------------</option>
+            <option value=""> ---------- Merci d'indiquer le status de l'article.</option>
             <?php foreach ($status as $key => $value) {
                 $selected = '';
                 if(!empty($_POST['status'])) {
