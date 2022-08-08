@@ -5,16 +5,16 @@ require('../inc/pdo.php');
 require('../inc/fonction.php');
 
 // Selection dans la BDD articles, et affichage par date décroissante
-$select_articles = "SELECT * FROM rloes ORDER BY created_at DESC";
+$select_roles = "SELECT * FROM roles ORDER BY id ASC";
 
 // préparation pour l'injection SQL
-$query = $pdo->prepare($select_articles);
+$query = $pdo->prepare($select_roles);
 
 // INJECTION SQL
 $query->execute();
 
 // Affiche le résultat
-$articles = $query->fetchAll();
+$roles = $query->fetchAll();
 ?>
 
 <?php
@@ -23,18 +23,17 @@ $articles = $query->fetchAll();
 include('inc/header-back.php'); ?>
 
 <!-- création tu tableau pour affichage des résultats -->
-<h1>Liste des articles</h1>
+<h1>Liste des roles</h1>
 <table>
    <thead>
     <tr>
         <th>id</th>
         <th>titre</th>
         <th>description</th>
-        <th>Status</th>
         <th>Editer</th>
     </tr>
    </thead>
- 
+
     <!-- affichage des éléments récuppérés dans le tableau -->
     <tbody>
         <?php foreach ($roles as $role) { ?>
@@ -42,7 +41,6 @@ include('inc/header-back.php'); ?>
             <td><?=$role['id']?></td>
             <td><?=$role['titre']?></td>
             <td><?=$role['description']?></td>
-            <td><?=$role['status']?></td>
             <td><a href="editPost.php?id=<?=$role['id']?>">Editer</a></td>
         </tr>
         <?php } ?>
