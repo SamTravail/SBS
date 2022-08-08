@@ -24,7 +24,7 @@ if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
 include('inc/header.php'); ?>
 
 <h1>Affichage Article</h1>
-<table class="listeArticle" style="border: 1px solid red">
+<table style="border: 1px solid red">
     <thead>
     <tr>
         <td><h1><?php echo $article['title'];?></h1><br></td>
