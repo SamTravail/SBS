@@ -12,6 +12,9 @@ header, footer {
     background-color: #fff;
 }
 
+.listeArticle {
+    max-width: 500px; width: 100%; margin: 0 auto;
+}
 
 #back2Top {
     width: 40px;
