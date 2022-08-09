@@ -71,6 +71,7 @@ if(!empty($_POST['submitted'])) {
 include('../includes/header-back.php'); ?>
 
     <h1>Edition d'un Utilisateur</h1>
+    <a href="listingUtilisateurs.php">Retour</a>
     <form action="" method="post" novalidate class="wrap2">
         <label for="prenom">Prénom</label>
         <input type="text" name="prenom" id="prenom" value="<?= $user['prenom']; ?>">

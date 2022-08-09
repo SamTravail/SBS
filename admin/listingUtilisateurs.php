@@ -24,6 +24,7 @@ include('../includes/header-back.php'); ?>
 
 <!-- Création tu tableau pour affichage des utilisateurs -->
 <h1>Liste des Utilisateurs</h1>
+    <a href="index.php">Retour</a>
 <table>
     <thead>
     <tr>
@@ -49,8 +50,11 @@ include('../includes/header-back.php'); ?>
             <td><?= $user['mdp'] ?></td>
             <td><?= $user['role_id'] ?></td>
             <td><a href="editUtilisateur.php?id=<?= $user['id_utilisateur'] ?>">Editer</a></td>
+            <td><a href="editUtilisateur.php?id=<?= $user['id_utilisateur'] ?>">Supprimer</a></td>
         </tr>
     <?php } ?>
     </tbody>
 </table>
+    <input type="submit" name="submitted" value="Ajouter un nouvel utilisateur"><a href="frmInscription.php?id=<?= $user['id_utilisateur'] ?>"></a></input>
+
 <?php include('../includes/footer-back.php');
