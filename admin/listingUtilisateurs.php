@@ -1,52 +1,56 @@
 <?php
 
 // Importation des fonctions
-require('../inc/pdo.php');
-require('../inc/fonction.php');
+require('../functions/pdo.php');
+require('../includes/fonction.php');
 
 // Selection dans la BDD articles, et affichage par date décroissante
-$select_users = "SELECT * FROM utilisateurs ORDER BY id ASC";
+$select_users = "SELECT * FROM utilisateurs ORDER BY id_utilisateur ASC";
 
-// préparation pour l'injection SQL
+// Préparation pour l'injection SQL
 $query = $pdo->prepare($select_users);
 
 // INJECTION SQL
 $query->execute();
 
 // Affiche le résultat
-$roles = $query->fetchAll();
+$users = $query->fetchAll();
 ?>
 
 <?php
 
-// ajout du header-back pour retour index-back !
-include('inc/header-back.php'); ?>
+// Ajout du header-back pour retour index-back
+include('../includes/header-back.php'); ?>
 
-<!-- création tu tableau pour affichage des résultats -->
+<!-- Création tu tableau pour affichage des utilisateurs -->
 <h1>Liste des Utilisateurs</h1>
 <table>
     <thead>
     <tr>
         <th>id</th>
-        <th>prenom</th>
-        <th>nom</th>
-        <th>pseudo</th>
-        <th>email</th>
-        <th>mot de passe</th>
-        <th>role</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Pseudo</th>
+        <th>Email</th>
+        <th>Mot de passe</th>
+        <th>Role</th>
     </tr>
     </thead>
 
-    <!-- affichage des éléments récuppérés dans le tableau -->
+    <!-- Affichage des éléments récuppérés dans le tableau -->
     <tbody>
-    <?php foreach ($roles as $role) { ?>
+    <?php foreach ($users as $user) { ?>
         <tr>
-            <td><?= $role['id'] ?></td>
-            <td><?= $role['titre'] ?></td>
-            <td><?= $role['description'] ?></td>
-            <td><a href="editPost.php?id=<?= $role['id'] ?>">Editer</a></td>
+            <td><?= $user['id_utilisateur'] ?></td>
+            <td><?= $user['prenom'] ?></td>
+            <td><?= $user['nom'] ?></td>
+            <td><?= $user['pseudo'] ?></td>
+            <td><?= $user['email'] ?></td>
+            <td><?= $user['mdp'] ?></td>
+            <td><?= $user['role_id'] ?></td>
+            <td><a href="editUtilisateur.php?id=<?= $user['id_utilisateur'] ?>">Editer</a></td>
         </tr>
     <?php } ?>
     </tbody>
 </table>
-
+<?php include('../includes/footer-back.php');

@@ -1,7 +1,7 @@
 <?php
 
-require('../inc/pdo.php');
-require('../inc/fonction.php');
+require('../functions/pdo.php');
+require('../includes/fonction.php');
 
 // Traitement PHP
 
@@ -52,7 +52,7 @@ if(!empty($_POST['submitted'])) {
 // debug($_POST);
 // debug($errors);
 
-include('inc/header-back.php'); ?>
+include('../includes/header-back.php'); ?>
 
     <h1>Ajouter un Arrrticlee</h1>
     <form action="" method="post" novalidate class="wrap2">
@@ -96,4 +96,4 @@ include('inc/header-back.php'); ?>
 
         <input type="submit" name="submitted" value="Ajouter un New Post !">
     </form>
-<?php include('inc/footer-back.php');?>
+<?php include('../includes/footer-back.php');?>

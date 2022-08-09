@@ -1,7 +1,7 @@
 <?php
 
-require('../inc/pdo.php');
-require('../inc/fonction.php');
+require('../functions/pdo.php');
+require('../includes/fonction.php');
 
  // Réccupération de l'ID
  if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
@@ -63,7 +63,7 @@ if(!empty($_POST['submitted'])) {
        $success = true;
     }
 }
-include('inc/header-back.php'); ?>
+include('../includes/header-back.php'); ?>
 
     <h1>Edition d'un Article</h1>
     <form action="" method="post" novalidate class="wrap2">
@@ -105,4 +105,4 @@ include('inc/header-back.php'); ?>
         <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span> 
         <input type="submit" name="submitted" value="Modifier le Post !">
     </form>
-<?php include('inc/footer-back.php');?>
+<?php include('../includes/footer-back.php');?>

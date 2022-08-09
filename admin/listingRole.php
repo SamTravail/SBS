@@ -1,8 +1,8 @@
 <?php
 
 // Importation des fonctions
-require('../inc/pdo.php');
-require('../inc/fonction.php');
+require('../functions/pdo.php');
+require('../includes/fonction.php');
 
 // Selection dans la BDD articles, et affichage par date décroissante
 $select_roles = "SELECT * FROM roles ORDER BY id ASC";
@@ -20,7 +20,7 @@ $roles = $query->fetchAll();
 <?php
 
 // ajout du header-back pour retour index-back !
-include('inc/header-back.php'); ?>
+include('../includes/header-back.php'); ?>
 
 <!-- création tu tableau pour affichage des résultats -->
 <h1>Liste des roles</h1>
