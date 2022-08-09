@@ -1,12 +1,12 @@
 <?php
-require('inc/pdo.php');
-require('inc/fonction.php');
-require('inc/request.php');
+require('functions/pdo.php');
+require('includes/fonction.php');
+require('includes/request.php');
 
 
 $title = "Homepage";
 
-include('inc/header.php'); ?>
+include('includes/header.php'); ?>
 
     <h1>Home page FRONT</h1>
 
@@ -18,4 +18,4 @@ include('inc/header.php'); ?>
 
 
 
-<?php include('inc/footer.php');
+<?php include('includes/footer.php');

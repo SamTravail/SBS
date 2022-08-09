@@ -1,8 +1,8 @@
 <?php
 
 // Importation des fonctions
-// require('../inc/pdo.php');
-// require('../inc/fonction.php');
+require('functions/pdo.php');
+// require('../includes/fonction.php');
 
 // Selection dans la BDD articles, et affichage par date décroissante
 $select_articles = "SELECT * FROM articles ORDER BY created_at DESC";
