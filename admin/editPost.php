@@ -102,7 +102,8 @@ include('../includes/header-back.php'); ?>
                 <option value="<?php echo $key; ?>"<?php echo $selected; ?>><?php echo $value; ?></option>
             <?php } ?>
         </select>
-        <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span> 
+        <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
+
         <input type="submit" name="submitted" value="Modifier le Post !">
     </form>
 <?php include('../includes/footer-back.php');?>

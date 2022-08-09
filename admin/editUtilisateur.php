@@ -29,7 +29,7 @@ $errors = array();
 
 //Si il n'y a pas de submit,
 if(!empty($_POST['submitted'])) {
-    
+    echo "conf.$id";
     // Retrait des espaces,  Faille XSS
     $prenom = trim(strip_tags($_POST['prenom']));
     $nom = trim(strip_tags($_POST['nom']));
@@ -62,7 +62,7 @@ if(!empty($_POST['submitted'])) {
         $query->execute();
 
         // retour apres injection
-        header('Location: index.php');
+        header('Location: listingUtilisateurs.php');
 
         // Formulaire soumis !
        $success = true;
@@ -89,10 +89,10 @@ include('../includes/header-back.php'); ?>
         <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
 
         <label for="id_utilisateur">id_utilisateur</label>
-        <input type="text" name="id_utilisateur" id="id_utilisateur" value="<?= $user['id_utilisateur']; ?>">
-        <span class="error"><?php if(!empty($errors['id_utilisateur'])) { echo $errors['id_utilisateur']; } ?></span>
+        <input type="text" name="id_utilisateur" id="id_utilisateur" value="<?= $user['id_utilisateur']; ?>"><br>
+        <span class="error"><?php if(!empty($errors['id_utilisateur'])) { echo $errors['id_utilisateur']; } ?></span><br>
 
-        <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span> 
+        <input type="hidden" name="id" value="$id">
         <input type="submit" name="submitted" value="Modifier l'utilisateur' !">
-    </form>
+    </form><br>
 <?php include('../includes/footer-back.php');?>
