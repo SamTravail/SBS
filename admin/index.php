@@ -18,6 +18,4 @@ include('inc/header-back.php'); ?>
 <p><a href="newpost.php">New Post</a></p>
 
 
-
-
 <?php include('inc/footer-back.php');
