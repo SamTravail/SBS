@@ -49,8 +49,12 @@ include('../includes/header-back.php'); ?>
             <td><?= $user['mdp'] ?></td>
             <td><?= $user['role_id'] ?></td>
             <td><a href="editUtilisateur.php?id=<?= $user['id_utilisateur'] ?>">Editer</a></td>
+            <td><a href="suppUtilisateur.php?id=<?= $user['id_utilisateur'] ?>">Supprimer</a></td>
         </tr>
     <?php } ?>
     </tbody>
 </table>
+<form method="post" action="newUtilisateur.php">
+<input type="submit" name="ajouter" value="Ajouter un utilisateur">
+</form>
 <?php include('../includes/footer-back.php');
