@@ -8,20 +8,33 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
     if(!empty($_GET['op'])){
         $op = $_GET['op'];
         if ($op=='edit'){
-            include('../includes/header-back.php');
+            include('includes/header-back.php');
             editNote ($id);
-            include('../includes/footer-back.php');
+            include('includes/footer-back.php');
         }
         if ($op=='supp'){
             suppNote ($id);
         }
         if ($op=='lire'){
-            include('../includes/header-back.php');
+            //include('includes/header-back.php');
             $notes = lireNotes ($id);
             afficheNotes($notes);
-            include('../includes/footer-back.php');
+            //include('includes/footer-back.php');
+
         }
+
     }
+
+if(!empty($_POST['addNote'])) {
+    $note = $_POST['note'];
+    $id_article = $_POST['id_article'];
+    $id_user = $_POST['id_user'];
+
+    insertNote ($note, $id_article, $id_user);
+
+    }
+
+
 
 if(!empty($_POST['modifNote']))
     {
@@ -33,7 +46,7 @@ if(!empty($_POST['modifNote']))
 
 // ------------------- lire-------------
 function lireNotes ($id_article){
-    require('../functions/pdo.php');
+    require('functions/pdo.php');
     // Selection dans la BDD Notes, et affichage par ordre décroissant
     $select_notes = "SELECT * FROM notes  WHERE articles_id_articles=:id_article";
     $query = $pdo->prepare($select_notes);
@@ -44,7 +57,7 @@ function lireNotes ($id_article){
     return $notes;
 }
 function lireNote ($id_note){
-    require('../functions/pdo.php');
+    require('functions/pdo.php');
 // Selection dans la BDD Notes, et affichage par ordre décroissant
     $select_note = "SELECT note FROM notes  WHERE id_note= :id_note";
     $query = $pdo->prepare($select_note);
@@ -55,15 +68,44 @@ function lireNote ($id_note){
     return $note['note'];
 }
 
-function infoNote ($id_article){
+function blockInfoNote ($id_article){
 
     $infoNote=recupereNoteMoyenne($id_article);
 ?>
         <label>Informations note</label>
         <p>Note : <?php echo $infoNote[0]; ?> / 5</p>
-    <p>Nombre de notes :<a href="note.php?op=lire&id=<?= $id_article ?>" ><?php echo $infoNote[1]; ?> </a></p>
+    <p>Nombre de notes :<a href="admin/note.php?op=lire&id=<?= $id_article ?>" ><?php echo $infoNote[1]; ?> </a></p>
 
 <?php
+}
+function blockNoter ($id_article,$id_user){
+
+    //$infoNote=recupereNoteMoyenne($id_article);
+    ?>
+    <label>Noter Article</label>
+    <form action="note.php?op=noter" method="post" novalidate class="wrap2">
+
+        <label for="note">Nouvelle note : </label>
+        <select name="note" id="note">
+            <?php
+            $i=0;
+            $note=3;
+            for ($i;$i<=5;$i++){
+                $opt='<option value="'.$i.'"';
+                if ($i== $note)
+                {
+                    $opt=$opt." selected";
+                }
+                $opt=$opt.">".$i."</option>";
+                echo $opt;
+            }
+            ?>
+        </select>
+        <input type="hidden" name="id_article" value="<?= $id_article; ?>">
+        <input type="hidden" name="id_user" value="<?= $id_user; ?>">
+        <input type="submit" name="addNote" value="Noter">
+    </form><br>
+    <?php
 }
 
 
@@ -101,20 +143,23 @@ function afficheNotes ($notes){?>
 // ----------------- inserer une note
 //$sql_insert= "INSERT INTO notes (id_note, note, articles_id_articles, utilisateurs_id_utilisateurs) VALUES (NULL, 2, 3, 3)";
 
-function insertNote ($note, $id_article, $id_utilisateur){
-    $sql_insert= "INSERT INTO notes (note, articles_id_articles, utilisateurs_id_utilisateurs) VALUES (:notes, :id_article, :id_utilisateur)";
+function insertNote ($note, $id_article, $id_utilisateur): void
+{
+    require('functions/pdo.php');
+    $sql_insert="INSERT INTO notes (id_note, note, articles_id_articles, utilisateurs_id_utilisateurs) VALUES (NULL, :note, :id_article, :id_utilisateur)";
     // Préparation pour l'injection SQL
     $query = $pdo->prepare($sql_insert);
-    $query->bindValue(':note',$note, PDO::PARAM_INT);
+    $query->bindValue(':note',floatval($note), PDO::PARAM_INT);
     $query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
     $query->bindValue(':id_utilisateur',$id_utilisateur, PDO::PARAM_INT);
     $query->execute();
+
 }
 
 // -------------------modifier la note
 //$sql_update = "UPDATE notes SET note = 1 WHERE id_note = 2";
 function updatetNote ($note, $id_note){
-    require('../functions/pdo.php');
+    require('functions/pdo.php');
     $sql_update = "UPDATE notes SET note = :note WHERE id_note = :id_note";
     $query = $pdo->prepare($sql_update);
     $query->bindValue(':note',$note, PDO::PARAM_INT);

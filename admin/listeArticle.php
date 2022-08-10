@@ -1,7 +1,7 @@
 <?php
 
-require('functions/pdo.php');
-require('includes/fonction.php');
+require('../functions/pdo.php');
+require('../includes/fonction.php');
 
 // Réccupération de l'ID
 if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
@@ -21,8 +21,8 @@ if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
     die('404');
 }
 
-include('includes/header.php');
-include('admin/note.php');
+include('../includes/header.php');
+include('note.php');
 ?>
 <h1>Affichage Article</h1>
 
@@ -46,5 +46,20 @@ $status = array(
     <p><?php echo blockInfoNote($article['id']) ?></p>
 
 
-
-<?php include('includes/footer.php'); ?>
+<table class="wrap2">
+    <thead>
+    <tr>
+        <td><h1><?php echo $article['title'];?></h1><br></td>
+    </tr>
+    <tr>
+        <td><p><?php echo $article['content'];?></p><br></td>
+    </tr>
+    <tr>
+        <td><h4><?php echo $article['auteur'];?></h4><br></td>
+    </tr>
+    <tr>
+        <td><h5><?php echo $article['status'];?></h5></td>
+    </tr>
+    </thead>
+</table>
+<?php include('../includes/footer-back.php'); ?>

@@ -35,10 +35,10 @@ include('../includes/header-back.php'); ?>
         <h1><?php echo $article['title']; ?></h1>
 
         <label for="content">Contenu</label>
-        <p><?php echo $article['content']; ?></p>
+        <p style="background-color: lightgrey"><?php echo $article['content']; ?></p>
 
         <label for="auteur">Auteur</label>
-        <p><?php echo $article['auteur']; ?></p>
+        <p style="background-color: lightgrey"><?php echo $article['auteur']; ?></p>
 
         <?php
         $status = array(
@@ -48,8 +48,19 @@ include('../includes/header-back.php'); ?>
 
         ?>
         <label for="status">Status</label>
-        <p><?php echo $status[$article['status']]?></p>
-        <p><?php echo infoNote($article['id']) ?></p>
+        <p style="background-color: lightgrey"><?php echo $status[$article['status']]?></p>
+        <p><?php echo blockInfoNote($article['id']) ?></p>
+        <?php
+            $id_user=1; // SAM
+            if(isset($id_user))
+            {
+             echo "<p>";
+             echo blockNoter($article['id'],$id_user);
+             echo "</p>";
+
+            }
+
+        ?>
 
 
         <input type="submit" name="submitted" value="Noter le Post !">
