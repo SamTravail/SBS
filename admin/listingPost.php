@@ -24,6 +24,7 @@ include('../includes/header-back.php'); ?>
 
 <!-- création tu tableau pour affichage des résultats -->
 <h1>Liste des postes</h1>
+    <a href="index.php">Retour</a>
 <table>
    <thead>
     <tr>
@@ -46,9 +47,13 @@ include('../includes/header-back.php'); ?>
             <td><?=$article['auteur']?></td>
             <td><?=$article['status']?></td>
             <td><a href="editPost.php?id=<?=$article['id']?>">Editer</a></td>
+            <td><a href="deletePost.php?id=<?= $article['id'] ?>">Supprimer</a></td>
+
         </tr>
         <?php } ?>
         <a id="back2Top" title="Back to top" href="#">&#10148;</a>
     </tbody>
 </table>
+    <input type="submit" name="submitted" value="Ajouter un nouveau post"><a href="newpost.php">New Post</a></a></input>
+
 <?php include('../includes/footer-back.php'); ?>

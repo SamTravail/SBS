@@ -19,7 +19,7 @@ $articles = $query->fetchAll();
 
 <!-- création tu tableau pour affichage des résultats -->
 <h1>Articles publiés</h1>
-<table>
+<table id="listfrt">
     <thead>
     <tr>
         <th>Title</th>

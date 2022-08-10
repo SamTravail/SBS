@@ -38,6 +38,7 @@ if(!empty($_POST['submitted'])) {
     $id_utilisateur = trim(strip_tags($_POST['id_utilisateur']));
     $role_id = trim(strip_tags($_POST['role_id']));
     $mdp = trim(strip_tags($_POST['mdp']));
+
     // Vérification des champs pour validation
     $errors = validText($errors,$prenom,'prenom',1,100);
     $errors = validText($errors,$nom,'nom',1,100);
@@ -46,15 +47,17 @@ if(!empty($_POST['submitted'])) {
     $errors = validText($errors, $id_utilisateur, 'id_utilisateur',0,20);
     $errors = validText($errors, $mdp, 'mdp',0,20);
     $errors = validText($errors, $role_id, 'role_id',0,20);
+    
     // Si pas d'erreurs, alors :
     if(count($errors) === 0) {
-    // die('ok');
         // Update dans la BDD
+
         $sql2 = "UPDATE utilisateurs SET prenom= :prenom, nom= :nom, pseudo = :pseudo, email = :email, mdp= :mdp, role_id= :role_id WHERE id_utilisateur= :id_utilisateur";
 
         $query = $pdo->prepare($sql2);
 
         // INJECTION SQL
+        $query->bindValue(':id_utilisateur',$id, PDO::PARAM_INT);
         $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
         $query->bindValue(':nom',$nom, PDO::PARAM_STR);
         $query->bindValue(':pseudo',$pseudo, PDO::PARAM_STR);
@@ -74,6 +77,7 @@ if(!empty($_POST['submitted'])) {
 include('../includes/header-back.php'); ?>
 
     <h1>Edition d'un Utilisateur</h1>
+    <a href="listingUtilisateurs.php">Retour</a>
     <form action="" method="post" novalidate class="wrap2">
         <label for="id_utilisateur">id_utilisateur</label>
         <input type="text" name="id_utilisateur" id="id_utilisateur" value="<?= $user['id_utilisateur']; ?>"><br>
@@ -105,7 +109,10 @@ include('../includes/header-back.php'); ?>
         <input type="text" name="role_id" id="role_id" value="<?= $user['role_id']; ?>">
         <span class="error"><?php if(!empty($errors['role_id'])) { echo $errors['role_id']; } ?></span>
 
-        <input type="hidden" name="id" value="$id">
+        <input type="hidden" name="id" value="<?= $id; ?>">
         <input type="submit" name="submitted" value="Modifier l'utilisateur' !">
     </form><br>
+
+
 <?php include('../includes/footer-back.php');?>
+

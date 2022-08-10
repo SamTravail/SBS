@@ -24,6 +24,7 @@ include('../includes/header-back.php'); ?>
 
 <!-- Création tu tableau pour affichage des utilisateurs -->
 <h1>Liste des Utilisateurs</h1>
+    <a href="index.php">Retour</a>
 <table>
     <thead>
     <tr>

@@ -55,6 +55,7 @@ if(!empty($_POST['submitted'])) {
 include('../includes/header-back.php'); ?>
 
     <h1>Ajouter un Arrrticlee</h1>
+    <a href="index.php">Retour</a>
     <form action="" method="post" novalidate class="wrap2">
         <label for="title">Titre</label>
         <input type="text" name="title" id="title" value="<?php if(!empty($_POST['title'])) { echo $_POST['title']; } ?>">
