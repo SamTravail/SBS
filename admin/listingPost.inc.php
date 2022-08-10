@@ -21,10 +21,10 @@ $articles = $query->fetchAll();
 
 // ajout du header-back pour retour index-back !
 //include('includes/header-back.php');
-include('note.php');
+require_once('note.php');
 ?>
 <!-- création tu tableau pour affichage des résultats -->
-<h1>Liste des postes</h1>
+<h1>Liste des postes inc</h1>
     <a href="index.php">Retour</a>
 <table>
    <thead>

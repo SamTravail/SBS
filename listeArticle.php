@@ -1,7 +1,7 @@
 <?php
 
-require('functions/pdo.php');
-require('includes/fonction.php');
+require_once('functions/pdo.php');
+require_once('includes/fonction.php');
 
 // Réccupération de l'ID
 if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
