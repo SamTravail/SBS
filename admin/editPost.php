@@ -13,7 +13,7 @@ require('../includes/fonction.php');
     $query->bindValue(':id', $id, PDO::PARAM_INT);
     $query->execute();
     $article = $query->fetch();
-    
+
     if(empty($article)) {
         die('404');
      }
@@ -27,7 +27,7 @@ $errors = array();
 
 //Si il n'y a pas de submit,
 if(!empty($_POST['submitted'])) {
-    
+
     // Retrait des espaces,  Faille XSS
     $title = trim(strip_tags($_POST['title']));
     $content = trim(strip_tags($_POST['content']));
@@ -39,7 +39,7 @@ if(!empty($_POST['submitted'])) {
     $errors = validText($errors,$content,'content',10,1000);
     $errors = validText($errors, $auteur, 'auteur',2,50);
     $errors = validText($errors, $status, 'status',5,20);
-    
+
     // Si pas d'erreurs, alors :
     if(count($errors) === 0) {
     // die('ok');
@@ -57,7 +57,7 @@ if(!empty($_POST['submitted'])) {
         $query->execute();
 
         // retour apres injection
-        header('Location: index.php');
+        header('Location: listingPost.php');
 
         // Formulaire soumis !
        $success = true;
@@ -78,7 +78,7 @@ include('../includes/header-back.php'); ?>
         <label for="auteur">Auteur</label>
         <input type="text" name="auteur" id="auteur" value="<?= $article['auteur']; ?>">
         <span class="error"><?php if(!empty($errors['auteur'])) { echo $errors['auteur']; } ?></span>
-        
+
         <?php
         $status = array(
             'draft' => 'Brouillon',

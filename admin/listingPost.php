@@ -20,8 +20,9 @@ $articles = $query->fetchAll();
 <?php
 
 // ajout du header-back pour retour index-back !
-include('../includes/header-back.php'); ?>
-
+include('../includes/header-back.php');
+include('note.php');
+?>
 <!-- création tu tableau pour affichage des résultats -->
 <h1>Liste des postes</h1>
     <a href="index.php">Retour</a>
@@ -32,6 +33,8 @@ include('../includes/header-back.php'); ?>
         <th>Title</th>
         <th>Content</th>
         <th>Auteur</th>
+        <th>Note</th>
+        <th>Nombre de note</th>
         <th>Status</th>
         <th>Editer</th>
     </tr>
@@ -42,9 +45,12 @@ include('../includes/header-back.php'); ?>
         <?php foreach ($articles as $article) { ?>
         <tr>
             <td><?=$article['id']?></td>
-            <td><?=$article['title']?></td>
+            <td><a href="affichePost.php?id=<?=$article['id']?>"><?=$article['title']?></a></td>
             <td><?=$article['content']?></td>
             <td><?=$article['auteur']?></td>
+            <td ><?php
+                $infoNote =  recupereNoteMoyenne($article['id']);echo $infoNote[0];?> /5 </td>
+            <td style="text-align: center"><a href="note.php?op=lire&id=<?=$article['id']?>"><?php echo $infoNote[1];?></a> </td>
             <td><?=$article['status']?></td>
             <td><a href="editPost.php?id=<?=$article['id']?>">Editer</a></td>
             <td><a href="deletePost.php?id=<?= $article['id'] ?>">Supprimer</a></td>
@@ -54,6 +60,7 @@ include('../includes/header-back.php'); ?>
         <a id="back2Top" title="Back to top" href="#">&#10148;</a>
     </tbody>
 </table>
-    <input type="submit" name="submitted" value="Ajouter un nouveau post"><a href="newpost.php">New Post</a></a></input>
-
+    <form method="post" action="newPost.php">
+        <input type="submit" name="ajouter" value="Créer un article">
+    </form>
 <?php include('../includes/footer-back.php'); ?>

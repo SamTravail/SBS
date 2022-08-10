@@ -15,7 +15,7 @@ include('../includes/header-back.php'); ?>
     <p><a href="listingPost.php">Listing Post</a></p>
     <li>- Gestion des commentaires</li>
 </ol>
-<p><a href="newpost.php">New Post</a></p>
+<p><a href="newPost.php">New Post</a></p>
 
 
 <?php include('../includes/footer-back.php');
