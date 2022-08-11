@@ -21,6 +21,10 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
             afficheNotes($notes);
             //include('includes/footer-back.php');
 
+            }
+        if ($op == 'lireNotes'){
+            $notes = toutesLesNotes();
+            afficheNotes($notes);
         }
 
     }
@@ -45,8 +49,21 @@ if(!empty($_POST['modifNote']))
     }
 
 // ------------------- lire-------------
+
+function toutesLesNotes()
+{
+    global $pdo;
+    // Selection dans la BDD Notes, et affichage par ordre décroissant
+    $select_notes = "SELECT * FROM notes";
+    $query = $pdo->prepare($select_notes);
+    $query->execute();
+    // Affiche le résultat
+    $notes = $query->fetchAll();
+    echo "cccccccccccccouoooouuuuuunt".count($notes);
+    return $notes;
+}
 function lireNotes ($id_article){
-    require('functions/pdo.php');
+    global $pdo;
     // Selection dans la BDD Notes, et affichage par ordre décroissant
     $select_notes = "SELECT * FROM notes  WHERE articles_id_articles=:id_article";
     $query = $pdo->prepare($select_notes);
@@ -57,7 +74,8 @@ function lireNotes ($id_article){
     return $notes;
 }
 function lireNote ($id_note){
-    require('functions/pdo.php');
+    global $pdo;
+
 // Selection dans la BDD Notes, et affichage par ordre décroissant
     $select_note = "SELECT note FROM notes  WHERE id_note= :id_note";
     $query = $pdo->prepare($select_note);

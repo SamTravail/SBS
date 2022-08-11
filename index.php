@@ -18,16 +18,31 @@ require('includes/request.php');
 
 
 $title = "Homepage";
+if(isset($_GET['mode'])){
+    $mode=$_GET['mode'];
+    if($mode == 'admin')
+        {
+            include('includes/header-back.php');
+        }
+    else
+        {
+        include('includes/header.php');
+        }
+    }
+else
+    {
+    include('includes/header.php');
+    }
 
-include('includes/header.php');
-require_once './includes/main.php';
 ?>
 
-    <h1>Home page FRONT</h1>
+
 
     <div>
 
         <?php
+        require_once './includes/main.php';
+        /*
         if(isset($_GET['page']))
             {
             $page = $_GET['page'];
@@ -50,17 +65,9 @@ require_once './includes/main.php';
                     }
 
                 }
-
-
-
-
             //include('./admin/listingPost.php');
-
-
-
-
             }
-
+*/
 
 
             //        include('publishPost.php')

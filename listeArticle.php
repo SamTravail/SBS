@@ -1,13 +1,10 @@
 <?php
-
-require_once('functions/pdo.php');
-require_once('includes/fonction.php');
+global $pdo;
+//require('includes/fonction.php');
 
 // Réccupération de l'ID
 if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
     $id = $_GET['article'];
-// function getId($id) {
-//     global $pdo;
     $sql = "SELECT * FROM articles WHERE id = :id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':id', $id, PDO::PARAM_INT);
@@ -21,11 +18,10 @@ if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
     die('404');
 }
 
-include('includes/header.php');
-include('admin/note.php');
+include('includes/note.inc.php');
 ?>
 <h1>Affichage Article</h1>
-
+<form class="wrap2">
     <label for="title">Titre</label>
     <h1><?php echo $article['title']; ?></h1>
 
@@ -44,7 +40,15 @@ $status = array(
     <label for="status">Status</label>
     <p style="background-color: lightgrey"><?php echo $status[$article['status']]?></p>
     <p><?php echo blockInfoNote($article['id']) ?></p>
+<?php
+$id_user=1; // SAM
+if(isset($id_user))
+{
+    echo "<p>";
+    echo blockNoter($article['id'],$id_user);
+    echo "</p>";
 
+}
 
-
-<?php include('includes/footer.php'); ?>
+?>
+</form>

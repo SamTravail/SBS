@@ -22,11 +22,12 @@ $articles = $query->fetchAll();
 // ajout du header-back pour retour index-back !
 //include('includes/header-back.php');
 require_once('note.php');
+$impaire = false;
 ?>
 <!-- création tu tableau pour affichage des résultats -->
 <h1>Liste des postes inc</h1>
     <a href="index.php">Retour</a>
-<table>
+<table class="wrap2">
    <thead>
     <tr>
         <th>id</th>
@@ -43,23 +44,35 @@ require_once('note.php');
     <!-- affichage des éléments récuppérés dans le tableau -->
     <tbody>
         <?php foreach ($articles as $article) { ?>
-        <tr>
+        <tr
+            <?php
+            if(!$impaire)
+            {
+                echo 'style="background-color: #DDDD;"';
+                $impaire = true;
+            }
+            else{echo 'style="background-color: #CDCC;"';
+                $impaire = false; }
+            ?>
+
+
+        >
             <td><?=$article['id']?></td>
-            <td><a href="admin/affichePost.php?id=<?=$article['id']?>"><?=$article['title']?></a></td>
+            <td><a href="index.php?page=article&article=<?=$article['id']?>"><?=$article['title']?></a></td>
             <td><?=$article['content']?></td>
             <td><?=$article['auteur']?></td>
             <td ><?php
                 $infoNote =  recupereNoteMoyenne($article['id']);echo $infoNote[0];?> /5 </td>
-            <td style="text-align: center"><a href="admin/note.php?op=lire&id=<?=$article['id']?>"><?php echo $infoNote[1];?></a> </td>
+            <td style="text-align: center"><a href="index.php?page=note&op=lire&id=<?=$article['id']?>"><?php echo $infoNote[1];?></a> </td>
             <td><?=$article['status']?></td>
-            <td><a href="admin/editPost.php?id=<?=$article['id']?>">Editer</a></td>
-            <td><a href="admin/deletePost.php?id=<?= $article['id'] ?>">Supprimer</a></td>
+            <td><a href="index.php?page=editPost&id=<?=$article['id']?>">Editer</a></td>
+            <td><a href="index.php?page=suppPost&id=<?= $article['id'] ?>">Supprimer</a></td>
 
         </tr>
         <?php } ?>
         <a id="back2Top" title="Back to top" href="#">&#10148;</a>
     </tbody>
 </table>
-    <form method="post" action="admin/newPost.php">
+    <form method="post" action="index.php?page=newPost">
         <input type="submit" name="ajouter" value="Créer un article">
     </form>

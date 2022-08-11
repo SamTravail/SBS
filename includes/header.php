@@ -13,10 +13,11 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="admin/index.php">Admin</a></li>
+            <li><a href="index.php?page=admin&mode=admin">Admin</a></li>
         </ul>
     </nav>
 
 </header>
 
 <div id="content">
+    <h1>Home page FRONT</h1>

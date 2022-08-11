@@ -1,13 +1,13 @@
 <?php
 
-require('../functions/pdo.php');
-require('../includes/fonction.php');
+global $pdo;
+
+require('includes/fonction.php');
 
 // Réccupération de l'ID
 if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
     $id = $_GET['article'];
 // function getId($id) {
-//     global $pdo;
     $sql = "SELECT * FROM articles WHERE id = :id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':id', $id, PDO::PARAM_INT);
@@ -21,7 +21,7 @@ if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
     die('404');
 }
 
-include('../includes/header.php');
+//include('../includes/header.php');
 include('note.php');
 ?>
 <h1>Affichage Article</h1>
@@ -62,4 +62,3 @@ $status = array(
     </tr>
     </thead>
 </table>
-<?php include('../includes/footer-back.php'); ?>
