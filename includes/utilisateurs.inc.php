@@ -25,8 +25,8 @@ $users = $query->fetchAll();
 
 <!-- Création tu tableau pour affichage des utilisateurs -->
 <h1>Liste des Utilisateurs</h1>
-    <a href="index.php">Retour</a>
-<table>
+
+<table class="wrap2">
     <thead>
     <tr>
         <th>id</th>
