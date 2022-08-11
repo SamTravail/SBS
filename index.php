@@ -15,7 +15,7 @@ require_once './functions/autoInclude.php';
 require('functions/pdo.php');
 require('includes/fonction.php');
 require('includes/request.php');
-
+$Categories = new Categories();
 $Roles = new Roles();
 $roles =$Roles->lister();
 $role_id = 2;
