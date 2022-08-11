@@ -1,5 +1,5 @@
 <?php 
-
+global $pdo, $Categories;
 // Importation des fonctions
 require_once('functions/pdo.php');
 //require_once('includes/fonction.php');
@@ -36,6 +36,7 @@ $impaire = false;
         <th>Auteur</th>
         <th>Note</th>
         <th>Nombre de note</th>
+        <th>Nombre catégories</th>
         <th>Status</th>
         <th>Editer</th>
     </tr>
@@ -63,7 +64,16 @@ $impaire = false;
             <td><?=$article['auteur']?></td>
             <td ><?php
                 $infoNote =  recupereNoteMoyenne($article['id']);echo $infoNote[0];?> /5 </td>
-            <td style="text-align: center"><a href="index.php?page=note&op=lire&id=<?=$article['id']?>"><?php echo $infoNote[1];?></a> </td>
+            <td style="text-align: center"><a href="index.php?page=note&op=lire&id=<?=$article['id']?>" "><?php echo $infoNote[1];?></a> </td>
+            <td style="text-align: center">
+            <?php
+                $nbCat = $Categories->compteCategoriesArticle($article['id']);
+            $txtcat = $Categories->listeCategoriesArticle($article['id']);
+
+                echo "<a href=\"\" onmouseOver=\"AffBulle('Categories associées', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
+            ?>
+
+            </td>
             <td><?=$article['status']?></td>
             <td><a href="index.php?page=editPost&id=<?=$article['id']?>">Editer</a></td>
             <td><a href="index.php?page=suppPost&id=<?= $article['id'] ?>">Supprimer</a></td>

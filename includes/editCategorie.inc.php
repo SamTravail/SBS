@@ -4,10 +4,12 @@ global $pdo, $Roles, $Categories;
 // Réccupération de l'ID
 if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = $_GET['id'];
+    }
+    else{
+        $id=0;
+        }
 
-// function getId($id) {
-
-    $sql = "SELECT * FROM categories WHERE id = :id";
+      $sql = "SELECT * FROM categories WHERE id =:id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':id', $id, PDO::PARAM_INT);
     $query->execute();
@@ -16,9 +18,6 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
     if (empty($categorie)) {
         die('404 2');
     }
-} else {
-    die('404 1');
-}
 
 // Traitement PHP
 // Création du tableau des erreurs
@@ -29,22 +28,17 @@ if (!empty($_POST['submitted'])) {
 
     // Retrait des espaces,  Faille XSS
     $nom = trim(strip_tags($_POST['nom']));
+    $id_parent = trim(strip_tags($_POST['id_parent']));
 
     // Vérification des champs pour validation
     $errors = validText($errors, $nom, 'nom', 1, 100);
 
     // Si pas d'erreurs, alors :
     if (count($errors) === 0) {
-
-        // Update dans la BDD
-        $sql2 = "UPDATE categories SET nom= :nom WHERE id= :id";
-        $query = $pdo->prepare($sql2);
-        // INJECTION SQL
-        $query->bindValue(':id',$id, PDO::PARAM_INT);
-        $query->bindValue(':nom', $nom, PDO::PARAM_STR);
-        $query->execute();
+        $Categories->updateCategorie($id, $nom, $id_parent);
 
         // retour apres injection
+
         header('Location: index.php?page=categories');
 
         // Formulaire soumis !
@@ -60,6 +54,11 @@ if (!empty($_POST['submitted'])) {
     <input type="text" name="nom" id="nom" value="<?= $categorie['nom']; ?>"><br>
     <span class="error"><?php if (!empty($errors['nom'])) {
             echo $errors['nom'];
+        } ?></span><br>
+    <label for="id">id_parent</label>
+    <?php $Categories->blockSelectCategorie($categorie['id_parent'], 'parent') ?>
+    <span class="error"><?php if (!empty($errors['id_parent'])) {
+            echo $errors['id_parent'];
         } ?></span><br>
 
     <input type="hidden" name="id" value="<?= $id; ?>">
