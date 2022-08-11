@@ -26,7 +26,7 @@ $categories = $query->fetchAll();
 <!-- Création tu tableau pour affichage des utilisateurs -->
 <h1>Liste des catégories</h1>
 
-<table>
+<table class="wrap2">
     <thead>
     <tr>
         <th>id</th>
@@ -49,6 +49,12 @@ $categories = $query->fetchAll();
     <?php } ?>
     </tbody>
 </table>
+
+
+
+
+
+
 <form method="post" action="index.php?page=newCategorie">
 <input type="submit" name="ajouter" value="Ajouter une Catégorie">
 </form>

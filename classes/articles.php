@@ -1,30 +1,29 @@
 <?php
 
-class Categories
+class Articles
 {
-    private array $categories;
-    private array $tab_id_categories;
-    private string $sql_select = "SELECT nom, id FROM categories ORDER BY nom ASC";
-    private string $sql_update = "UPDATE categories SET nom= :nom, id_parent= :id_parent  WHERE id= :id";
-    private string $sql_delete = "DELETE FROM categories WHERE id = :id";
-    private string $sql_insert_categorie_article = "INSERT INTO articles_has_categories (articles_id_articles, categories_id) VALUES (:id_article, :id_cat)";
+    private array $articles;
+    private array $tab_id_articles;
+    private string $sql_select = "SELECT * FROM articles ORDER BY title ASC";
+
+    private string $sql_delete = "DELETE FROM articles WHERE id = :id";
+    private string $sql_insert = "INSERT INTO categories (nom, id_parent) VALUES (:nom, :id_parent)";
+
     private string $sql_categories_article = "SELECT * FROM articles_has_categories WHERE articles_id_articles=:id_article";
 
     //private object $pdo;
     private object $query;
     private array $nomCategories;
 
-
     public function __construct()
     {
         global $pdo;
-
         //$this->pdo = $pdo;
         $this->query = $pdo->prepare($this->sql_select);
         $this->query->execute();
-        $this->categories = $this->query->fetchAll();
-
+        $this->articles = $this->query->fetchAll();
     }
+
     public function compteCategoriesArticle($id_article)
     {
         global $pdo;
@@ -36,27 +35,14 @@ class Categories
         return count($this->tab_id_categories);
 
     }
-    public function addCategorieArticle($id_article,$categorie): void
-    {
-        global $pdo;
-        $this->query = $pdo->prepare($this->sql_insert_categorie_article);
-        $this->query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
-        $this->query->bindValue(':id_cat',$categorie, PDO::PARAM_INT);
-        $this->query->execute();
-
-
-    }
-
-
-        public function listeCategoriesArticle($id_article)
+    public function listeCategoriesArticle($id_article)
     {
         $nbcat = $this->compteCategoriesArticle($id_article);
         if($nbcat !=0) {
-            $txtcat='';
             foreach ($this->tab_id_categories as $idcatA) {
                 $idcat = $idcatA['categories_id'];
-                $txt = $this->lireNomCategorie($idcat);
-                $txtcat = $txtcat . $txt . "<br>";
+                $txtcat = $this->lireNomCategorie($idcat);
+                $txtcat = $txtcat . "<br>";
             }
         }
         else {  $txtcat="Aucune";
@@ -113,20 +99,20 @@ class Categories
 
     }
 
-    public function blockSelectCategorie($default,$element)
+    public function blockSelectArticle($default,$element)
     {
-        if ($element == "categorie"){
-            echo '<select name="categorie" id="categorie">';
+        if ($element == "article"){
+            echo '<select name="id_article" id="id_article">';
         }else{
             echo '<select name="id_parent" id="id_parent">';
         }
 
-            foreach ($this->categories as $categorie) {
-                $opt = '<option value="' . $categorie['id'] . '"';
-                if ($categorie['id'] == $default) {
+            foreach ($this->articles as $article) {
+                $opt = '<option value="' . $article['id'] . '"';
+                if ($article['id'] == $default) {
                     $opt = $opt . " selected";
                 }
-                $opt = $opt . ">" . $categorie['nom'] . "</option>";
+                $opt = $opt . ">" . $article['title'] . "</option>";
                 echo $opt;
             }
 

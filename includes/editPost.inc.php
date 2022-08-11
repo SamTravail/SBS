@@ -1,6 +1,6 @@
 <?php
 
-require('functions/pdo.php');
+global $pdo,$Categories;
 //require('../includes/fonction.php');
 
  // Réccupération de l'ID
@@ -107,5 +107,11 @@ if(!empty($_POST['submitted'])) {
         <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
 
         <input type="submit" name="submitted" value="Modifier le Post !">
+        <label for="auteur">Categories associees</label>
+        <p style="background-color: lightgrey"><?php echo $Categories->listeCategoriesArticle($article['id']); ?></p>
+
+    </form>
+    <form action="index.php?page=articleCategories" method="post" novalidate class="wrap2">
+        <input type="submit" name="submitted" value="Associer une catégorie">
     </form>
 </div>
