@@ -1,5 +1,5 @@
 <?php
-global $pdo;
+global $pdo,$Roles;
 //require('../functions/pdo.php');
 //require('../includes/fonction.php');
 
@@ -29,7 +29,7 @@ $errors = array();
 
 //Si il n'y a pas de submit,
 if(!empty($_POST['submitted'])) {
-    echo "conf.$id";
+    //echo "conf.$id";
     // Retrait des espaces,  Faille XSS
     $prenom = trim(strip_tags($_POST['prenom']));
     $nom = trim(strip_tags($_POST['nom']));
@@ -105,12 +105,27 @@ if(!empty($_POST['submitted'])) {
 
         <label for="mdp">Role SELECT</label>
 
-
-        <input type="text" name="role_id" id="role_id" value="<?= $user['role_id']; ?>">
+        <select name="role_id" id="role_id">
+            <?php
+            $roles=$Roles->lister();
+            $i=0;
+            $note=$user['role_id'];
+            foreach ($roles as $role){
+                $opt='<option value="'.$i.'"';
+                if ($i== $note)
+                {
+                    $opt=$opt." selected";
+                }
+                $opt=$opt.">".$role['titre']."</option>";
+                echo $opt;
+                $i++;
+            }
+            ?>
+        </select>
         <span class="error"><?php if(!empty($errors['role_id'])) { echo $errors['role_id']; } ?></span>
 
         <input type="hidden" name="id" value="<?= $id; ?>">
-        <input type="submit" name="submitted" value="Modifier l'utilisateur' !">
+        <br><br><input type="submit" name="submitted" value="Modifier l'utilisateur' !">
     </form><br>
 
 

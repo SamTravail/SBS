@@ -1,7 +1,7 @@
 <?php
 
 // Importation des fonctions
-global $pdo;
+global $pdo,$Roles;
 //require('../functions/pdo.php');
 //require('../includes/fonction.php');
 
@@ -49,7 +49,7 @@ $users = $query->fetchAll();
             <td><?= $user['pseudo'] ?></td>
             <td><?= $user['email'] ?></td>
             <td><?= $user['mdp'] ?></td>
-            <td><?= $user['role_id'] ?></td>
+            <td><?= $Roles->lireNomRole_id($user['role_id']) ?></td>
 
             <td><a href="index.php?page=editUtilisateur&id=<?= $user['id_utilisateur'] ?>">Editer</a></td>
             <td><a href="index.php?page=suppUtilisateur&id=<?= $user['id_utilisateur'] ?>">Supprimer</a></td>
@@ -57,6 +57,6 @@ $users = $query->fetchAll();
     <?php } ?>
     </tbody>
 </table>
-<form method="post" action="newUtilisateur.php">
+<form method="post" action="index.php?page=newUtilisateur">
 <input type="submit" name="ajouter" value="Ajouter un utilisateur">
 </form>
