@@ -1,7 +1,7 @@
 <?php
 
-require('../functions/pdo.php');
-require('../includes/fonction.php');
+require('functions/pdo.php');
+//require('../includes/fonction.php');
 
  // Réccupération de l'ID
  if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
@@ -57,26 +57,27 @@ if(!empty($_POST['submitted'])) {
         $query->execute();
 
         // retour apres injection
-        header('Location: listingPost.php');
+        header('Location: index.php');
 
         // Formulaire soumis !
        $success = true;
     }
 }
-include('../includes/header-back.php'); ?>
+//include('../includes/header-back.php'); ?>
 
     <h1>Edition d'un Article</h1>
+<div class="wrap2">
     <form action="" method="post" novalidate class="wrap2">
-        <label for="title">Titre</label>
-        <input type="text" name="title" id="title" value="<?= $article['title']; ?>">
+        <label for="title">Titre</label><br>
+        <input type="text" name="title" id="title" value="<?= $article['title']; ?>"><br>
         <span class="error"><?php if(!empty($errors['title'])) { echo $errors['title']; } ?></span>
 
-        <label for="content">Contenu</label>
-        <textarea name="content" id="content" cols="30" rows="10"><?= $article['content']; ?></textarea>
+        <label for="content">Contenu</label><br>
+        <textarea name="content" id="content" cols="30" rows="10"><?= $article['content']; ?></textarea><br>
         <span class="error"><?php if(!empty($errors['content'])) { echo $errors['content']; } ?></span>
 
-        <label for="auteur">Auteur</label>
-        <input type="text" name="auteur" id="auteur" value="<?= $article['auteur']; ?>">
+        <label for="auteur">Auteur</label><br>
+        <input type="text" name="auteur" id="auteur" value="<?= $article['auteur']; ?>"><br>
         <span class="error"><?php if(!empty($errors['auteur'])) { echo $errors['auteur']; } ?></span>
 
         <?php
@@ -86,7 +87,8 @@ include('../includes/header-back.php'); ?>
         );
 
         ?>
-        <label for="status">Status</label>
+
+        <label for="status">Status</label><br>
         <select name="status">
             <option value=""> ---------- Merci d'indiquer le status de l'article.</option>
             <?php foreach ($status as $key => $value) {
@@ -101,9 +103,9 @@ include('../includes/header-back.php'); ?>
                 ?>
                 <option value="<?php echo $key; ?>"<?php echo $selected; ?>><?php echo $value; ?></option>
             <?php } ?>
-        </select>
+        </select><br>
         <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
 
         <input type="submit" name="submitted" value="Modifier le Post !">
     </form>
-<?php include('../includes/footer-back.php');?>
+</div>

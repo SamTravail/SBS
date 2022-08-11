@@ -43,7 +43,7 @@ if(!empty($_POST['submitted'])) {
         $last_id = $pdo->lastInsertId();
 
         // retour apres injection
-        // header('Location: index.php?id=' . $last_id);
+         header('Location: listingPost.php');
 
         // Formulaire soumis !
        $success = true;
@@ -54,7 +54,7 @@ if(!empty($_POST['submitted'])) {
 
 include('../includes/header-back.php'); ?>
 
-    <h1>Ajouter un Arrrticlee</h1>
+    <h1>Ajouter un Article</h1>
     <a href="index.php">Retour</a>
     <form action="" method="post" novalidate class="wrap2">
         <label for="title">Titre</label>

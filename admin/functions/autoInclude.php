@@ -10,6 +10,6 @@ function autoInclude(string $file): void {
     if (count($includedFiles) !== 0 && in_array($file, $includedFiles)) {
         require_once $file;
     } else {
-        require_once './admin/listingPost.inc.php';
+        require_once './includes/accueil.inc.php';
     }
 }
