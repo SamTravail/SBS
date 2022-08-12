@@ -124,7 +124,8 @@ function blockNoter ($id_article,$id_user){
 
 
 function afficheNotes ($notes){?>
-    <table>
+    <h1>Liste des notes</h1>
+    <table class="wrap2">
     <thead>
     <tr>
         <th>id_note</th>

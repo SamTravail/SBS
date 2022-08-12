@@ -1,5 +1,5 @@
 <?php
-global $pdo, $Categories;
+global $pdo, $Categories, $Commentaires;
 //require('includes/fonction.php');
 
 // Réccupération de l'ID
@@ -43,10 +43,12 @@ include('includes/note.inc.php');
     <label for="auteur">Categories associees</label>
     <p style="background-color: lightgrey"><?php echo $Categories->listeCategoriesArticle($article['id']); ?></p>
 
+    <label for="auteur">Commentaires associees</label>
+    <p style="background-color: lightgrey"><?php echo $Commentaires->listeCommentaires($article['id']); ?></p>
 
     <p><?php echo blockInfoNote($article['id']) ?></p>
     <?php
-    $id_user=1; // SAM
+    $id_user=1; // SAM   $nivo = $Utilisateur->Role_id($id_utilisateur)  if(nivo > 3)
     if(isset($id_user))
     {
         echo "<p>";
@@ -56,8 +58,6 @@ include('includes/note.inc.php');
     }
 
     ?>
-
-
 </form>
 
 

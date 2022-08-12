@@ -25,6 +25,7 @@
             . "<li><a href=\"index.php?page=utilisateurs\">utilisateurs</a></li>\n"
             . "<li><a href=\"index.php?page=note&op=lireNotes\">Notes</a></li>\n"
             . "<li><a href=\"index.php?page=categories\">Categories</a></li>\n"
+            . "<li><a href=\"index.php?page=commentaires\">Commentaires</a></li>\n"
             . "</ul>\n"
             . "</div>\n"
             . "</div>\n";
@@ -36,5 +37,5 @@
 </header>
 
 <div id="content">
-    <h1>Home pageééé FRONT</h1>
+    <h1>Accueil</h1>
 
