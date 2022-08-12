@@ -15,6 +15,7 @@ require_once './functions/autoInclude.php';
 require('functions/pdo.php');
 require('includes/fonction.php');
 require('includes/request.php');
+$Commentaires = new Commentaires();
 $Articles = new Articles();
 $Categories = new Categories();
 $Roles = new Roles();

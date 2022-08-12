@@ -25,7 +25,7 @@ global $pdo,$Categories;
 // Création du tableau des erreurs
 $errors = array();
 
-//Si il n'y a pas de submit,
+//Si il y a submit,
 if(!empty($_POST['submitted'])) {
 
     // Retrait des espaces,  Faille XSS

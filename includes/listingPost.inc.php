@@ -1,11 +1,12 @@
 <?php 
 global $pdo, $Categories,$Articles;
 
-if(!empty($_POST['filtrecat'])&& ctype_digit($_POST['filtrecat']))
+if(!empty($_POST['filtrecat']))
 {
     $filtreCat = $_POST['categorie'];
     echo "*******************************************".$filtreCat;
     $articles = $Articles->lireArticlesCategorie($filtreCat);
+    echo "*******************************************".count($articles);
 
 }else{
     $articles = $Articles->articlesdate;
@@ -17,7 +18,7 @@ if(!empty($_POST['filtrecat'])&& ctype_digit($_POST['filtrecat']))
 
 // ajout du header-back pour retour index-back !
 //include('includes/header-back.php');
-require_once('note.php');
+require_once('admin/note.php');
 $impaire = false;
 ?>
 <!-- création tu tableau pour affichage des résultats -->

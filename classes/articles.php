@@ -2,15 +2,21 @@
 
 class Articles
 {
-    private array $articles;
-    private array $tab_id_articles;
+    public array $articles;
+    public array $articlesdate;
+    public array $articlescategorie;
+    public array $tab_articles_categorie;
     private string $sql_select = "SELECT * FROM articles ORDER BY title ASC";
+    private string $sql_select_lastdate = "SELECT * FROM articles ORDER BY created_at DESC";
+
+    private string $sql_select_article = "SELECT * FROM articles WHERE id = :id";
+
 
     private string $sql_delete = "DELETE FROM articles WHERE id = :id";
     private string $sql_insert = "INSERT INTO categories (nom, id_parent) VALUES (:nom, :id_parent)";
 
     private string $sql_categories_article = "SELECT * FROM articles_has_categories WHERE articles_id_articles=:id_article";
-
+    private string $sql_articles_categorie = "SELECT articles_id_articles FROM articles_has_categories WHERE categories_id=:id_categorie";
     //private object $pdo;
     private object $query;
     private array $nomCategories;
@@ -21,9 +27,44 @@ class Articles
         //$this->pdo = $pdo;
         $this->query = $pdo->prepare($this->sql_select);
         $this->query->execute();
+        $this->query->fetchAll();
+
         $this->articles = $this->query->fetchAll();
+        $this->lireArticleDate();
     }
 
+    public function lireArticlesCategorie($id_categorie)
+    {
+        global $pdo;
+        $this->query = $pdo->prepare($this->sql_articles_categorie);
+        $this->query->bindValue(':id_categorie',$id_categorie, PDO::PARAM_INT);
+        $this->query->execute();
+        $tab_articles_categorie = $this->query->fetchAll();
+        echo "**************** COUNT TAB ****".count($tab_articles_categorie);
+        foreach ($tab_articles_categorie as $id_article)
+        {
+           $articles_categorie[] = $this->lireArticle($id_article['articles_id_articles']);
+        }
+        return $articles_categorie;
+    }
+
+    public function lireArticle($id_article)
+    {
+        global $pdo;
+        //$this->pdo = $pdo;
+        $this->query = $pdo->prepare($this->sql_select_article);
+        $this->query->bindValue(':id',$id_article, PDO::PARAM_INT);
+        $this->query->execute();
+        return $this->query->fetch();
+    }
+    public function lireArticleDate()
+    {
+        global $pdo;
+        //$this->pdo = $pdo;
+        $this->query = $pdo->prepare($this->sql_select_lastdate);
+        $this->query->execute();
+        $this->articlesdate = $this->query->fetchAll();
+    }
     public function compteCategoriesArticle($id_article)
     {
         global $pdo;
@@ -85,6 +126,20 @@ class Articles
         $this->query->execute();
     }
 
+    public function lireNomArticle($id_article)
+    {
+
+        $done = false;
+        foreach ($this->articles as $article) {
+            if ($article['id'] == $id_article) {
+                $done = true;
+                return $article['title'];
+            }
+        }
+
+        if ($done == false) return "";
+
+    }
     public function lireNomCategorie($categorie_id)
     {
         $done = false;
