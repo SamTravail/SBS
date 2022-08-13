@@ -21,18 +21,26 @@
             . "<div class=\"nav_left\"></div>\n"
             . "<div class=\"nav_holder\" >\n"
             . "<ul id=\"navigation\">\n"
+            . "<div>\n"
             . "<li><a href=\"index.php\" > Articles</a></li>\n"
             . "<li><a href=\"index.php?page=commentaires\">Commentaires</a></li>\n"
             . "<li><a href=\"index.php?page=note&op=lireNotes\">Notes</a></li>\n"
             . "<li><a href=\"index.php?page=categories\">Categories</a></li>\n"
+            . "</div>\n"
+            . "<div>\n"
             . "<li><a href=\"index.php?page=utilisateurs\">utilisateurs</a></li>\n"
             . "<li><a href=\"index.php?page=admin&mode=admin\">Admin</a></li>\n"
-            . "</ul>\n"
-            . "</div>\n"
-            . "</div>\n";
-
+            . "<li><a href=\"index.php?page=inscription\">Inscription</a></li>\n";
+        if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+            echo '<li><a href="index.php?page=logout">Logout</a></li>';
+        } else {
+            echo '<li><a href="index.php?page=login">Login</a></li>';
+        }
         ?>
-
+        . "</div>\n"
+        . "</ul>\n"
+        . "</div>
+        </div>
 
     </nav>
 </header>
