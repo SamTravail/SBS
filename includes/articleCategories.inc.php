@@ -22,6 +22,10 @@ if (!empty($_POST['associe'])) {
 <form action="index.php?page=articleCategories" method="post" novalidate class="wrap2">
     <label for="id">Articles</label>
     <?php
+    if (isset($id_article)){
+        $nom = $Articles->lireNomArticle($id_article);
+        echo $nom;
+    }else
     $Articles->blockSelectArticle(0,'article');
     ?>
     <label for="id">Categories existantes</label>

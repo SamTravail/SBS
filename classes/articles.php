@@ -40,7 +40,7 @@ class Articles
         $this->query->bindValue(':id_categorie',$id_categorie, PDO::PARAM_INT);
         $this->query->execute();
         $tab_articles_categorie = $this->query->fetchAll();
-        echo "**************** COUNT TAB ****".count($tab_articles_categorie);
+        //echo "**************** COUNT TAB ****".count($tab_articles_categorie);
         foreach ($tab_articles_categorie as $id_article)
         {
            $articles_categorie[] = $this->lireArticle($id_article['articles_id_articles']);
@@ -51,7 +51,7 @@ class Articles
     public function lireArticle($id_article)
     {
         global $pdo;
-        //$this->pdo = $pdo;
+
         $this->query = $pdo->prepare($this->sql_select_article);
         $this->query->bindValue(':id',$id_article, PDO::PARAM_INT);
         $this->query->execute();
