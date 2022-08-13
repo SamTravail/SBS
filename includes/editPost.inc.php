@@ -1,7 +1,7 @@
 <?php
 
 global $pdo,$Categories;
-//require('../includes/fonction.php');
+
 
  // Réccupération de l'ID
  if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
@@ -111,7 +111,7 @@ if(!empty($_POST['submitted'])) {
         <p style="background-color: lightgrey"><?php echo $Categories->listeCategoriesArticle($article['id']); ?></p>
 
     </form>
-    <form action="index.php?page=articleCategories" method="post" novalidate class="wrap2">
+    <form action="index.php?page=articleCategories&id_article=<?=$id;?>" method="post" novalidate class="wrap2">
         <input type="submit" name="submitted" value="Associer une catégorie">
     </form>
 </div>

@@ -128,8 +128,10 @@ class Articles
 
     public function lireNomArticle($id_article)
     {
-
         $done = false;
+        $article = $this->lireArticle($id_article);
+        return $article['title'];
+        /*
         foreach ($this->articles as $article) {
             if ($article['id'] == $id_article) {
                 $done = true;
@@ -138,7 +140,7 @@ class Articles
         }
 
         if ($done == false) return "";
-
+*/
     }
     public function lireNomCategorie($categorie_id)
     {
