@@ -40,10 +40,10 @@ include('includes/note.inc.php');
     <label for="status">Status</label>
     <p style="background-color: lightgrey"><?php echo $status[$article['status']]?></p>
 
-    <label for="auteur">Categories associees</label>
+    <label for="auteur">Categories</label>
     <p style="background-color: lightgrey"><?php echo $Categories->listeCategoriesArticle($article['id']); ?></p>
 
-    <label for="auteur">Commentaires associees</label>
+    <label for="auteur">Commentaires</label>
     <p style="background-color: lightgrey"><?php echo $Commentaires->listeCommentaires($article['id']); ?></p>
 
     <p><?php echo blockInfoNote($article['id']) ?></p>
