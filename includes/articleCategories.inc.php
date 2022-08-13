@@ -15,19 +15,24 @@ if (!empty($_POST['associe'])) {
     $id_article = trim(strip_tags($_POST['id_article']));
     $categorie = trim(strip_tags($_POST['categorie']));
     $Categories->addCategorieArticle($id_article, $categorie);
-
+// retour apres injection
+    header("Location: index.php?page=editPost&id=$id_article");
     }
 ?>
 <h1>Associer un article a une categorie</h1>
 <form action="index.php?page=articleCategories" method="post" novalidate class="wrap2">
     <label for="id">Articles</label>
     <?php
-    if (isset($id_article)){
+    if (isset($id_article))
+    {
         $nom = $Articles->lireNomArticle($id_article);
         echo $nom;
-    }else
+        echo '<input type="hidden" name="id_article" value="'.$id_article.'">';
+    }
+    else
+    {
     $Articles->blockSelectArticle(0,'article');
-    ?>
+    }?>
     <label for="id">Categories existantes</label>
     <?php
     $Categories->blockSelectCategorie(0,'categorie');
