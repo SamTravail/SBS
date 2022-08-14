@@ -28,10 +28,11 @@ class Utilisateurs
         $this->utilisateurs = $this->query->fetchAll();
     }
 
-    //****************************** Vérification ****************************
+    //****************************** Vï¿½rification ****************************
 
     function verifierUtilisateur($email) {
-        if ($pdo = pdo()) {
+        global $pdo;
+        if (isset($pdo)) {
             $sql = "SELECT COUNT(*) FROM utilisateurs WHERE email='$email'";
             $reponse = $pdo->query($sql);
             $nbreLigne = $reponse->fetchColumn();
@@ -47,8 +48,9 @@ class Utilisateurs
 
 
     function verifierLogin($email, $motdepasse) {
-        if ($pdo = pdo()) {
-            if (verifierUtilisateur($email)) {
+        global $pdo;
+        if (isset($pdo)) {
+            if ($this->verifierUtilisateur($email)) {
                 $recupMdp = "SELECT mdp FROM utilisateurs WHERE email='$email'";
                 $resultRecupMdp = $pdo->query($recupMdp);
                 $mdpBDD = $resultRecupMdp->fetchAll();
@@ -72,7 +74,8 @@ class Utilisateurs
     function inscrireUtilisateur(string $nom, string $prenom, string $email, string $mdp): bool {
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
 
-        if ( $pdo = pdo()) {
+        global $pdo;
+        if (isset($pdo)) {
 
             $this->query = $pdo->prepare($this->sql_insert);
             $this->query->bindValue(':nom', $nom, PDO::PARAM_STR);

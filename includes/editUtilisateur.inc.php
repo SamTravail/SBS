@@ -1,5 +1,5 @@
 <?php
-global $pdo,$Roles;
+global $pdo,$Roles, $Utilisateurs;
 //require('../functions/pdo.php');
 //require('../includes/fonction.php');
 
@@ -37,7 +37,6 @@ if(!empty($_POST['submitted'])) {
     $email = trim(strip_tags($_POST['email']));
     $id_utilisateur = trim(strip_tags($_POST['id_utilisateur']));
     $role_id = trim(strip_tags($_POST['role_id']));
-    $mdp = trim(strip_tags($_POST['mdp']));
 
     // Vérification des champs pour validation
     $errors = validText($errors,$prenom,'prenom',1,100);
@@ -45,14 +44,13 @@ if(!empty($_POST['submitted'])) {
     $errors = validText($errors, $pseudo, 'pseudo',2,50);
     $errors = validText($errors, $email, 'email',5,20);
     $errors = validText($errors, $id_utilisateur, 'id_utilisateur',0,20);
-    $errors = validText($errors, $mdp, 'mdp',0,20);
     $errors = validText($errors, $role_id, 'role_id',0,20);
     
     // Si pas d'erreurs, alors :
     if(count($errors) === 0) {
         // Update dans la BDD
-
-        $sql2 = "UPDATE utilisateurs SET prenom= :prenom, nom= :nom, pseudo = :pseudo, email = :email, mdp= :mdp, role_id= :role_id WHERE id_utilisateur= :id_utilisateur";
+        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+        $sql2 = "UPDATE utilisateurs SET prenom= :prenom, nom= :nom, pseudo = :pseudo, email = :email, role_id= :role_id WHERE id_utilisateur= :id_utilisateur";
 
         $query = $pdo->prepare($sql2);
 
@@ -63,7 +61,6 @@ if(!empty($_POST['submitted'])) {
         $query->bindValue(':pseudo',$pseudo, PDO::PARAM_STR);
         $query->bindValue(':email',$email, PDO::PARAM_STR);
         $query->bindValue(':id_utilisateur',$id, PDO::PARAM_INT);
-        $query->bindValue(':mdp',$mdp, PDO::PARAM_STR);
         $query->bindValue(':role_id',$role_id, PDO::PARAM_INT);
         $query->execute();
 
@@ -98,10 +95,6 @@ if(!empty($_POST['submitted'])) {
         <label for="email">Email</label>
         <input type="text" name="email" id="email" value="<?= $user['email']; ?>">
         <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
-
-        <label for="mdp">Mot de passe</label>
-        <input type="text" name="mdp" id="mdp" value="<?= $user['mdp']; ?>">
-        <span class="error"><?php if(!empty($errors['mdp'])) { echo $errors['mdp']; } ?></span>
 
         <label for="mdp">Role SELECT</label>
 

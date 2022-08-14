@@ -24,6 +24,7 @@ class Commentaires
         $this->commentaires = $this->query->fetchAll();
 
     }
+
     public function compteCommentaires($id_article)
     {
         global $pdo;
@@ -35,6 +36,7 @@ class Commentaires
         return count($this->commentairesArticle);
 
     }
+
     public function addCommentaire($id_article,$id_utilisateur,$titre,$description): void
     {
         global $pdo;
@@ -45,6 +47,18 @@ class Commentaires
         $this->query->bindValue(':description',$description, PDO::PARAM_STR);
         $this->query->execute();
 
+    }
+
+    public function repCommentaire($id_article,$id_utilisateur,$titre,$description, $id_parent): void
+    {
+        global $pdo;
+        $this->query = $pdo->prepare($this->sql_insert_commentaires_article);
+        $this->query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
+        $this->query->bindValue(':id_utilisateur',$id_utilisateur, PDO::PARAM_INT);
+        $this->query->bindValue(':titre',$titre, PDO::PARAM_STR);
+        $this->query->bindValue(':description',$description, PDO::PARAM_STR);
+        $this->query->bindValue(':id_parent',$id_parent, PDO::PARAM_INT);
+        $this->query->execute();
 
     }
 

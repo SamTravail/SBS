@@ -6,6 +6,7 @@ class Articles
     public array $articlesdate;
     public array $articlescategorie;
     public array $tab_articles_categorie;
+
     private string $sql_select = "SELECT * FROM articles ORDER BY title ASC";
     private string $sql_select_lastdate = "SELECT * FROM articles ORDER BY created_at DESC";
 
@@ -24,13 +25,21 @@ class Articles
     public function __construct()
     {
         global $pdo;
-        //$this->pdo = $pdo;
+
         $this->query = $pdo->prepare($this->sql_select);
         $this->query->execute();
-        $this->query->fetchAll();
-
         $this->articles = $this->query->fetchAll();
         $this->lireArticleDate();
+    }
+
+    public function lireArticles()
+    {
+        global $pdo;
+
+        $this->query = $pdo->prepare($this->sql_select);
+        $this->query->execute();
+        $this->articles = $this->query->fetchAll();
+        return $this->articles;
     }
 
     public function lireArticlesCategorie($id_categorie)
@@ -60,7 +69,7 @@ class Articles
     public function lireArticleDate()
     {
         global $pdo;
-        //$this->pdo = $pdo;
+
         $this->query = $pdo->prepare($this->sql_select_lastdate);
         $this->query->execute();
         $this->articlesdate = $this->query->fetchAll();
@@ -68,6 +77,7 @@ class Articles
     public function compteCategoriesArticle($id_article)
     {
         global $pdo;
+
         $this->query = $pdo->prepare($this->sql_categories_article);
         $this->query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
         $this->query->execute();
@@ -97,6 +107,7 @@ class Articles
         public function suppCategorie($id)
     {
         global $pdo;
+
         $this->query = $pdo->prepare($this->sql_delete);
         $this->query->bindValue(':id',$id, PDO::PARAM_INT);
         $this->query->execute();
@@ -107,6 +118,7 @@ class Articles
     public function ajouteCategorie($nom, $id_parent)
     {
         global $pdo;
+
         $this->query = $pdo->prepare($this->sql_insert);
         $this->query->bindValue(':nom',$nom, PDO::PARAM_STR);
         $this->query->bindValue(':id_parent',$id_parent, PDO::PARAM_STR);
@@ -117,6 +129,7 @@ class Articles
     public function updateCategorie($id,$nom,$id_parent)
     {
         global $pdo;
+
         //$this->query = "UPDATE categories SET nom= :nom WHERE id= :id";
         $this->query = $pdo->prepare($this->sql_update);
         // INJECTION SQL
