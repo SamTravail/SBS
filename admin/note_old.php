@@ -92,7 +92,7 @@ function blockInfoNote ($id_article){
 ?>
         <label>Informations note</label>
         <p>Note : <?php echo $infoNote[0]; ?> / 5</p>
-    <p>Nombre de notes :<a href="admin/note.php?op=lire&id=<?= $id_article ?>" ><?php echo $infoNote[1]; ?> </a></p>
+    <p>Nombre de notes :<a href="note.php?op=lire&id=<?= $id_article ?>" ><?php echo $infoNote[1]; ?> </a></p>
 
 <?php
 }
@@ -103,7 +103,7 @@ function blockNoter ($id_article,$id_user){
     <label>Noter Article</label>
     <form action="note.php?op=noter" method="post" novalidate class="wrap2">
 
-        <label for="note">Nouvelle note : </label>
+        <label for="note">Nouvelle !!! note : </label>
         <select name="note" id="note">
             <?php
             $i=0;
@@ -262,7 +262,7 @@ function editNote ($id_note){
 
 
         <input type="hidden" name="id_note" value="<?= $id_note; ?>">
-        <input type="submit" name="modifNote" value="Modifier la note">
+        <input type="submit" name="modifNote" value="Modifier 1 la note">
     </form><br>
     <?php
 }

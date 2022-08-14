@@ -51,12 +51,12 @@ $users = $query->fetchAll();
             <td><?= $user['mdp'] ?></td>
             <td><?= $Roles->lireNomRole_id($user['role_id']) ?></td>
 
-            <td><a href="index.php?page=editUtilisateur&id=<?= $user['id_utilisateur'] ?>">Editer</a></td>
+            <td><a href="index.php?page=editUtilisateur&id=<?= $user['id_utilisateur'] ?>">&Eacute;diter</a></td>
             <td><a href="index.php?page=suppUtilisateur&id=<?= $user['id_utilisateur'] ?>">Supprimer</a></td>
         </tr>
     <?php } ?>
     </tbody>
 </table>
-<form method="post" action="index.php?page=newUtilisateur">
+<form method="post" action="index.php?page=newUtilisateur" class="wrap2">
 <input type="submit" name="ajouter" value="Ajouter un utilisateur">
 </form>

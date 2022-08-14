@@ -107,11 +107,11 @@ if(!empty($_POST['submitted'])) {
         <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
 
         <input type="submit" name="submitted" value="Modifier le Post !">
-        <label for="auteur">Categories associees</label>
+        <label for="auteur">Cat&eacute;gories associ&eacute;es</label>
         <p style="background-color: lightgrey"><?php echo $Categories->listeCategoriesArticle($article['id']); ?></p>
 
     </form>
     <form action="index.php?page=articleCategories&id_article=<?=$id;?>" method="post" novalidate class="wrap2">
-        <input type="submit" name="submitted" value="Associer une catégorie">
+        <input type="submit" name="submitted" value="Associer une cat&eacute;gorie">
     </form>
 </div>

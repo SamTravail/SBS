@@ -108,6 +108,7 @@ textarea {width: 100%;resize: none;}
     padding: 0 20px 0 20px;
     display: block;
     text-align: center;
+    text-decoration: none;
 
 }
 #navigation li a:hover

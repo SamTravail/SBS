@@ -37,5 +37,5 @@ if (!empty($_POST['associe'])) {
     <?php
     $Categories->blockSelectCategorie(0,'categorie');
     ?>
-    <br><br><input type="submit" name="associe" value="Associer Catégorie">
+    <br><br><input type="submit" name="associe" value="Associer Cat&eacute;gorie">
 </form><br>

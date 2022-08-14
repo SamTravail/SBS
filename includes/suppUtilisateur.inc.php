@@ -16,7 +16,7 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
 ?>
 
-<h1>Utilisateur Supprimé</h1>
+<h1>Utilisateur Supprim&eacute;</h1>
 <form method="post" action="index.php?page=utilisateurs">
     <input type="submit" value="Retour">
 </form>

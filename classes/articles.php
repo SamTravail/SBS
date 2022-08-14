@@ -27,11 +27,24 @@ class Articles
         //$this->pdo = $pdo;
         $this->query = $pdo->prepare($this->sql_select);
         $this->query->execute();
-        $this->query->fetchAll();
+        //$this->query->fetchAll();
 
         $this->articles = $this->query->fetchAll();
         $this->lireArticleDate();
     }
+
+    public function lireArticles()
+    {
+        global $pdo;
+        //$this->pdo = $pdo;
+        $this->query = $pdo->prepare($this->sql_select);
+        $this->query->execute();
+        $this->articles = $this->query->fetchAll();
+        return $this->articles;
+ 
+        
+    }
+
 
     public function lireArticlesCategorie($id_categorie)
     {
@@ -40,6 +53,7 @@ class Articles
         $this->query->bindValue(':id_categorie',$id_categorie, PDO::PARAM_INT);
         $this->query->execute();
         $tab_articles_categorie = $this->query->fetchAll();
+        $articles_categorie = array();
         //echo "**************** COUNT TAB ****".count($tab_articles_categorie);
         foreach ($tab_articles_categorie as $id_article)
         {

@@ -2,7 +2,7 @@
 global $pdo, $Categories, $Commentaires;
 //require('includes/fonction.php');
 
-// Réccupération de l'ID
+// RÃ©ccupÃ©ration de l'ID
 if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
     $id = $_GET['article'];
     $sql = "SELECT * FROM articles WHERE id = :id";
@@ -21,7 +21,7 @@ if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
 include('includes/note.inc.php');
 ?>
 <h1>Affichage Article</h1>
-<form class="wrap2">
+<form class="wrap2" action="index.php?page=note" method="post">
     <label for="title">Titre</label>
     <h1><?php echo $article['title']; ?></h1>
 
@@ -33,7 +33,7 @@ include('includes/note.inc.php');
     <?php
     $status = array(
         'draft' => 'Brouillon',
-        'publish' => 'Publié'
+        'publish' => 'Publi&eacute;'
     );
 
     ?>
@@ -48,13 +48,15 @@ include('includes/note.inc.php');
 
     <p><?php echo blockInfoNote($article['id']) ?></p>
     <?php
-    $id_user=1; // SAM   $nivo = $Utilisateur->Role_id($id_utilisateur)  if(nivo > 3)
-    if(isset($id_user))
-    {
+    if(isset($_SESSION['role_id']))
+        {
+        if ($_SESSION['role_id'] > 2)
+         {
+        $id_user = $_SESSION['user_id'];
         echo "<p>";
         echo blockNoter($article['id'],$id_user);
         echo "</p>";
-
+         }
     }
 
     ?>

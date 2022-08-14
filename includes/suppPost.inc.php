@@ -1,7 +1,5 @@
 <?php
 
-//require('functions/pdo.php');
-//require('includes/fonction.php');
 
 // Réccupération de l'ID
 if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
@@ -17,7 +15,7 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 }
 
 ?>
-<h1>Article Supprimé</h1>
+<h1>Article Supprim&eacute;</h1>
 <form method="post" action="index.php">
     <input type="submit" value="Retour">
 </form>
