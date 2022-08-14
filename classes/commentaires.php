@@ -8,6 +8,7 @@ class Commentaires
     private string $sql_update = "UPDATE commentaires SET titre= :titre, description= :description WHERE id= :id";
     private string $sql_delete = "DELETE FROM commentaires WHERE id = :id";
     private string $sql_insert_commentaires_article = "INSERT INTO commentaires (articles_id_articles, utilisateurs_id_utilisateur, titre, description) VALUES (:id_article, :id_utilisateur, :titre, :description)";
+    private string $sql_rep_commentaires_article = "INSERT INTO commentaires (articles_id_articles, utilisateurs_id_utilisateur, titre, description, id_parent) VALUES (:id_article, :id_utilisateur, :titre, :description, :id_parent)";
     private string $sql_commentaires_article = "SELECT * FROM commentaires WHERE articles_id_articles=:id_article";
 
     //private object $pdo;
@@ -52,7 +53,7 @@ class Commentaires
     public function repCommentaire($id_article,$id_utilisateur,$titre,$description, $id_parent): void
     {
         global $pdo;
-        $this->query = $pdo->prepare($this->sql_insert_commentaires_article);
+        $this->query = $pdo->prepare($this->sql_rep_commentaires_article);
         $this->query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
         $this->query->bindValue(':id_utilisateur',$id_utilisateur, PDO::PARAM_INT);
         $this->query->bindValue(':titre',$titre, PDO::PARAM_STR);
