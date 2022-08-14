@@ -1,6 +1,6 @@
 <h1>Inscription</h1>
 <?php
-
+global $Utilisateurs;
 if (isset($_POST['frmInscription'])) {
     $nom = isset($_POST['nom']) ? htmlentities(trim($_POST['nom'])) : "";
     $prenom = isset($_POST['prenom']) ? htmlentities(trim($_POST['prenom'])) : "";
@@ -46,15 +46,15 @@ if (isset($_POST['frmInscription'])) {
 
         echo $messageErreurs;
 
-        require_once './includes/frmInscription.php';
+        require_once 'includes/frmInscription.php';
     } else {
         // Vérification de l'inscription préalable ou non de l'utilisateur
-        if (verifierUtilisateur($email)) {
+        if ($Utilisateurs->verifierUtilisateur($email)) {
             // La fonction verifierUtilisateur() renvoie vrai (il y a déjà une ligne avec cette adresse), pas de traitement
             echo "Vous êtes déjà inscrit";
         } else {
             // La fonction verifierUtilisateur() renvoie faux, donc on procède à l'inscription
-            if (inscrireUtilisateur($nom, $prenom, $email, $mdp1))
+            if ($Utilisateurs->inscrireUtilisateur($nom, $prenom, $email, $mdp1))
                 $message = "Utilisateur inscrit";
             else
                 $message = "Erreur";

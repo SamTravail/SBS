@@ -17,7 +17,8 @@
 <body>
 <header>
     <nav>
-        <?php echo "<div id=\"container\" >\n"
+        <?php 
+        echo "<div id=\"container\" >\n"
             . "<div class=\"nav_left\"></div>\n"
             . "<div class=\"nav_holder\" >\n"
             . "<ul id=\"navigation\">\n"
@@ -37,9 +38,9 @@
             echo '<li><a href="index.php?page=login">Login</a></li>';
         }
         ?>
-        . "</div>\n"
-        . "</ul>\n"
-        . "</div>
+        </div>
+        </ul>
+        </div>
         </div>
 
     </nav>
