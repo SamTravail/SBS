@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #9bb0c4;
+    border: 2px solid #02e49b;
+}
+
+header, footer {
+}
+h1 {
+    text-align: center;
+}
+.listeArticle {
+    max-width: 500px; width: 100%; margin: 0 auto;
+}
+
+listfrt {
+    background-color: #02e49b;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrap {
+    max-width: 1000px; width: 100%; margin: 0 auto;
+}
+.wrap2 {
+    max-width: 500px; width: 100%; margin: 0 auto;
+}
+label {display: block;}
+input, select {
+    width: 100%;
+    padding: 1rem;
+}
+textarea {width: 100%;resize: none;}
+.error {color:red;}
+
+#back2Top {
+    width: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+    -moz-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+    background-color: #DDD;
+    color: #555;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+}
+#back2Top:hover {
+    background-color: #DDF;
+    color: #000;
+}
+
+.nav_left
+{
+    width: 3px;
+    height: 45px;
+    background: url(../img/nav_left.gif) no-repeat;
+    float: left;
+}
+.nav_holder
+{
+    width: 100%;
+    height: 45px;
+    background: url(../img/nav_bg.png) repeat-x;
+    background-color: #0a4b78;
+    float: left;
+}
+.nav_right
+{
+    width: 3px;
+    height: 45px;
+    background: url(../img/nav_right.png) no-repeat;
+    float: right;
+    margin: 0 0 4px 0;
+}
+#navigation
+{
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    list-style: none;
+    text-decoration: none;
+    margin: 0; padding: 0;
+
+}
+#navigation li
+{
+    float: left;
+}
+#navigation li a
+{
+    color: white;
+    line-height: 45px;
+    padding: 0 20px 0 20px;
+    display: block;
+    text-align: center;
+
+}
+#navigation li a:hover
+{
+    color: greenyellow;
+    text-decoration: none;
+}

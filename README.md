@@ -1,5 +1,6 @@
 <!-- PROJECT LOGO -->
 <br />
+  <h3 align="center">Sql Blog Sam</h3>
 <div align="center">
     <a href="https://github.com/SamTravail/SBS">
     <img src="asset/img/logo_rdm.png" alt="logo_rdm" width="80" height="80">
@@ -138,8 +139,15 @@ This is the list things you need to use the blog and how to install them.
 3. Install xampp
    ```
    // After xampp was installed whith default option,
-   // import the base from _documents into your phpMyAdmin
+   // In phpMyAdmin, create a sbs database.
+   // import the base from _documents into sbs
    ```
+4. Site access
+   
+   You can now access by your localhost at : [SBS](http://localhost/sbs/index.php),
+   and [phpMyadmin](http://localhost/phpmyadmin/index.php?route=/database/structure&db=sbs).
+     
+  
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
