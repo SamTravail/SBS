@@ -1,5 +1,6 @@
 <!-- PROJECT LOGO -->
 <br />
+  <h3 align="center">Sql Blog Sam</h3>
 <div align="center">
     <a href="https://github.com/SamTravail/SBS">
     <img src="asset/img/logo_rdm.png" alt="logo_rdm" width="80" height="80">
