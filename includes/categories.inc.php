@@ -24,7 +24,7 @@ $categories = $query->fetchAll();
 //include('../includes/header-back.php'); ?>
 
 <!-- Création tu tableau pour affichage des utilisateurs -->
-<h1>Liste des catégories</h1>
+<h1>Liste des cat&eacute;gories</h1>
 
 <table class="wrap2">
     <thead>
@@ -43,7 +43,7 @@ $categories = $query->fetchAll();
             <td><?= $categorie['id'] ?></td>
             <td><?= $categorie['nom'] ?></td>
             <td><?= $categorie['id_parent'] ?></td>
-            <td><a href="index.php?page=editCategorie&id=<?= $categorie['id'] ?>">Editer</a></td>
+            <td><a href="index.php?page=editCategorie&id=<?= $categorie['id'] ?>">&Eacute;diter</a></td>
             <td><a href="index.php?page=suppCategorie&id=<?= $categorie['id'] ?>">Supprimer</a></td>
         </tr>
     <?php } ?>
@@ -56,5 +56,5 @@ $categories = $query->fetchAll();
 
 
 <form method="post" action="index.php?page=newCategorie" class="wrap2">
-<input type="submit" name="ajouter" value="Ajouter une Catégorie">
+<input type="submit" name="ajouter" value="Ajouter une Cat&eacute;gorie">
 </form>

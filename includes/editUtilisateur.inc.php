@@ -76,31 +76,31 @@ if(!empty($_POST['submitted'])) {
 }
  ?>
 
-    <h1>Edition d'un Utilisateur</h1>
-    <a href="index.php?page=utilisateurs">Retour</a>
+    <h1>&Eacute;dition d'un Utilisateur</h1>
+
     <form action="index.php?page=editUtilisateur&id=<?= $user['id_utilisateur']; ?>" method="post" novalidate class="wrap2">
         <label for="id_utilisateur">id_utilisateur</label>
         <input type="text" name="id_utilisateur" id="id_utilisateur" value="<?= $user['id_utilisateur']; ?>"><br>
         <span class="error"><?php if(!empty($errors['id_utilisateur'])) { echo $errors['id_utilisateur']; } ?></span><br>
 
-        <label for="prenom">Prénom</label>
+        <label for="prenom">Pr&eacute;nom</label>
         <input type="text" name="prenom" id="prenom" value="<?= $user['prenom']; ?>">
-        <span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span>
+        <span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span><br><br>
 
         <label for="nom">Nom</label>
         <input type="text" name="nom" id="nom" value="<?= $user['nom']; ?>">
-        <span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span>
+        <span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span><br><br>
 
         <label for="pseudo">Pseudo</label>
         <input type="text" name="pseudo" id="pseudo" value="<?= $user['pseudo']; ?>">
-        <span class="error"><?php if(!empty($errors['pseudo'])) { echo $errors['pseudo']; } ?></span>
+        <span class="error"><?php if(!empty($errors['pseudo'])) { echo $errors['pseudo']; } ?></span><br><br>
 
         <label for="email">Email</label>
         <input type="text" name="email" id="email" value="<?= $user['email']; ?>">
-        <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
+        <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span><br><br>
 
         
-        <label for="mdp">Role SELECT</label>
+        <label for="mdp">R&ocirc;le SELECT</label>
 
         <select name="role_id" id="role_id">
             <?php
@@ -122,7 +122,7 @@ if(!empty($_POST['submitted'])) {
         <span class="error"><?php if(!empty($errors['role_id'])) { echo $errors['role_id']; } ?></span>
 
         <input type="hidden" name="id" value="<?= $id; ?>">
-        <br><br><input type="submit" name="submitted" value="Modifier l'utilisateur' !">
+        <br><br><input type="submit" name="submitted" value="Modifier l'utilisateur">
     </form><br>
 
 

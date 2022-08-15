@@ -65,20 +65,20 @@ if(!empty($_POST['submitted'])) {
 }
 //include('../includes/header-back.php'); ?>
 
-    <h1>Edition d'un Article</h1>
+    <h1>&Eacute;dition d'un Article</h1>
 <div class="wrap2">
     <form action="" method="post" novalidate class="wrap2">
-        <label for="title">Titre</label><br>
+        <label for="title">Titre</label>
         <input type="text" name="title" id="title" value="<?= $article['title']; ?>"><br>
-        <span class="error"><?php if(!empty($errors['title'])) { echo $errors['title']; } ?></span>
+        <span class="error"><?php if(!empty($errors['title'])) { echo $errors['title']; } ?></span><br>
 
-        <label for="content">Contenu</label><br>
+        <label for="content">Contenu</label>
         <textarea name="content" id="content" cols="30" rows="10"><?= $article['content']; ?></textarea><br>
-        <span class="error"><?php if(!empty($errors['content'])) { echo $errors['content']; } ?></span>
+        <span class="error"><?php if(!empty($errors['content'])) { echo $errors['content']; } ?></span><br>
 
-        <label for="auteur">Auteur</label><br>
+        <label for="auteur">Auteur</label>
         <input type="text" name="auteur" id="auteur" value="<?= $article['auteur']; ?>"><br>
-        <span class="error"><?php if(!empty($errors['auteur'])) { echo $errors['auteur']; } ?></span>
+        <span class="error"><?php if(!empty($errors['auteur'])) { echo $errors['auteur']; } ?></span><br>
 
         <?php
         $status = array(
@@ -88,7 +88,7 @@ if(!empty($_POST['submitted'])) {
 
         ?>
 
-        <label for="status">Status</label><br>
+        <label for="status">Status</label>
         <select name="status">
             <option value=""> ---------- Merci d'indiquer le status de l'article.</option>
             <?php foreach ($status as $key => $value) {
@@ -104,14 +104,16 @@ if(!empty($_POST['submitted'])) {
                 <option value="<?php echo $key; ?>"<?php echo $selected; ?>><?php echo $value; ?></option>
             <?php } ?>
         </select><br>
-        <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
+        <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span><br>
 
-        <input type="submit" name="submitted" value="Modifier le Post !">
-        <label for="auteur">Categories associees</label>
+
+        <label for="auteur">Cat&eacute;gories associ&eacute;es</label>
         <p style="background-color: lightgrey"><?php echo $Categories->listeCategoriesArticle($article['id']); ?></p>
 
     </form>
     <form action="index.php?page=articleCategories&id_article=<?=$id;?>" method="post" novalidate class="wrap2">
-        <input type="submit" name="submitted" value="Associer une catégorie">
+        <input type="submit" name="submitted" value="Associer une cat&eacute;gorie"><br><br>
+        <input type="submit" name="submitted" value="Modifier le Post !"><br><br>
     </form>
+
 </div>

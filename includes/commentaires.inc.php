@@ -75,14 +75,14 @@ else
 
             //$nomUtilisateur = $utilisateurs->lireNomUtilisateur($commentaire['utilisateurs_id_utilisateur']);
 
-                echo "<a href=\"\" onmouseOver=\"AffBulle('Article associé', '".$titleArticle."', 250)\" onmouseOut=\"HideBulle()\">".$commentaire['articles_id_articles']."</a>";
+                echo "<a href=\"\" onmouseOver=\"AffBulle('Article associ&eacute;', '".$titleArticle."', 250)\" onmouseOut=\"HideBulle()\">".$commentaire['articles_id_articles']."</a>";
             // echo "<a href=\"\" onmouseOver=\"AffBulle('Utilisateur associ�', '".$nomUtilisateur."', 250)\" onmouseOut=\"HideBulle()\">".$commentaire['utilisateurs_id_utilisateur']."</a>";
 
             ?>
 
             </td>
             <td><?=$commentaire['utilisateurs_id_utilisateur']?></td>
-            <td><a href="index.php?page=editCommentaires&id=<?=$commentaire['id']?>">Editer</a></td>
+            <td><a href="index.php?page=editCommentaires&id=<?=$commentaire['id']?>">&Eacute;diter</a></td>
             <td><a href="index.php?page=suppCommentaire&id=<?= $commentaire['id'] ?>">Supprimer</a></td>
 
         </tr>
@@ -90,8 +90,8 @@ else
 
     </tbody>
 </table>
-    <form method="post" action="index.php?page=newCommentaire">
-        <input type="submit" name="ajouter" value="Créer un commentaire">
+    <form method="post" action="index.php?page=newCommentaire" class="wrap2">
+        <input type="submit" name="ajouter" value="Cr&eacute;er un commentaire">
     </form>
 
 

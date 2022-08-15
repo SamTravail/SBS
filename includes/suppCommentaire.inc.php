@@ -10,7 +10,7 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
 ?>
 
-<h2>Commentaire Supprimé</h2>
+<h2>Commentaire Supprim&eacute;</h2>
 <form method="post" action="index.php?page=commentaires">
     <input type="submit" value="Retour aux Commentaires">
 </form>

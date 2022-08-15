@@ -47,22 +47,22 @@ if (!empty($_POST['submitted'])) {
 }
 ?>
 
-<h1>Edition d'une Catégorie</h1>
+<h1>&Eacute;dition d'une Cat&eacute;gorie</h1>
 
 <form action="index.php?page=editCategorie&id=<?= $categorie['id']; ?>" method="post" novalidate class="wrap2">
-    <label for="id">nom</label>
+    <label for="id">Lib&eacute;l&eacute;</label>
     <input type="text" name="nom" id="nom" value="<?= $categorie['nom']; ?>"><br>
     <span class="error"><?php if (!empty($errors['nom'])) {
             echo $errors['nom'];
         } ?></span><br>
-    <label for="id">id_parent</label>
+    <label for="id">Cat&eacute;gorie parente</label>
     <?php $Categories->blockSelectCategorie($categorie['id_parent'], 'parent') ?>
     <span class="error"><?php if (!empty($errors['id_parent'])) {
             echo $errors['id_parent'];
         } ?></span><br>
 
     <input type="hidden" name="id" value="<?= $id; ?>">
-    <br><br><input type="submit" name="submitted" value="Modifier la catégorie' !">
+    <br><br><input type="submit" name="submitted" value="Modifier la cat&eacute;gorie">
 </form><br>
 
 

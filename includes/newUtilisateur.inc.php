@@ -56,29 +56,29 @@ if(!empty($_POST['submitted'])) {
         // Formulaire soumis !
         $success = true;
 ?>
-        <h1>Création d'un Utilisateur</h1>
+        <h1>Cr&eacute;ation d'un Utilisateur</h1>
     <form action="" method="post" novalidate class="wrap2">
-        <label for="prenom">Prénom</label>
+        <label for="prenom">Pr&eacute;nom</label>
         <input type="text" name="prenom" id="prenom" value="<?= $prenom; ?>">
-        <span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span>
+        <span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span><br><br>
 
         <label for="nom">Nom</label>
         <input type="text" name="nom" id="nom" value="<?= $nom; ?>">
-        <span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span>
+        <span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span><br><br>
 
         <label for="pseudo">Pseudo</label>
         <input type="text" name="pseudo" id="pseudo" value="<?= $pseudo; ?>">
-        <span class="error"><?php if(!empty($errors['pseudo'])) { echo $errors['pseudo']; } ?></span>
+        <span class="error"><?php if(!empty($errors['pseudo'])) { echo $errors['pseudo']; } ?></span><br><br>
 
         <label for="email">Email</label>
         <input type="text" name="email" id="email" value="<?= $user['email']; ?>">
-        <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
+        <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span><br><br>
 
         <label for="mdp">Mot de passe</label>
         <input type="text" name="mdp" id="mdp" value="<?= $user['mdp']; ?>">
-        <span class="error"><?php if(!empty($errors['mdp'])) { echo $errors['mdp']; } ?></span>
+        <span class="error"><?php if(!empty($errors['mdp'])) { echo $errors['mdp']; } ?></span><br><br>
 
-        <input type="submit" name="submitted" value="Créer un utilisateur' !">
+        <input type="submit" name="submitted" value="Cr&eacute;er un utilisateur">
     </form><br>
 <?php
     }
@@ -93,21 +93,21 @@ if(!empty($_POST['submitted'])) {
 
 <form action="index.php?page=newUtilisateur" method="post" novalidate class="wrap2">
     <label for="prenom">Prénom</label>
-    <input type="text" name="prenom" id="prenom" placeholder="<?= $prenom; ?>">
+    <input type="text" name="prenom" id="prenom" placeholder="<?= $prenom; ?>"><br><br>
 
     <label for="nom">Nom</label>
-    <input type="text" name="nom" id="nom" placeholder="<?= $nom; ?>">
+    <input type="text" name="nom" id="nom" placeholder="<?= $nom; ?>"><br><br>
 
     <label for="pseudo">Pseudo</label>
-    <input type="text" name="pseudo" id="pseudo" placeholder="<?= $pseudo; ?>">
+    <input type="text" name="pseudo" id="pseudo" placeholder="<?= $pseudo; ?>"><br><br>
 
     <label for="email">Email</label>
-    <input type="text" name="email" id="email" placeholder="<?= $email; ?>">
+    <input type="text" name="email" id="email" placeholder="<?= $email; ?>"><br><br>
 
     <label for="mdp">Mot de passe</label>
-    <input type="text" name="mdp" id="mdp" placeholder="<?= $mdp; ?>">
+    <input type="text" name="mdp" id="mdp" placeholder="<?= $mdp; ?>"><br><br>
 
-    <input type="submit" name="submitted" value="Créer un utilisateur' !">
+    <input type="submit" name="submitted" value="Cr&eacute;er un utilisateur"><br><br>
 </form><br>
 <?php }
 ?>

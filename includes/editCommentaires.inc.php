@@ -33,7 +33,7 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
         }
     } ?>
-    <h1>Edition du commentaire</h1>
+    <h1>&Eacute;dition du commentaire</h1>
     <form method="post" novalidate class="wrap2" action="index.php?page=editCommentaires&id=<?= $id; ?>">
         <label for="title">Titre</label>
         <input type="text" name="titre" id="titre" value="<?= $commentaire['titre']; ?>"><br>
@@ -52,9 +52,9 @@ if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
         <?php $titleArticle = $Articles->lireNomArticle($commentaire['articles_id_articles']); ?>
         <label>Article
-            associé <?php echo "<a href=\"\" onmouseOver=\"AffBulle('Article', '" . $titleArticle . "', 250)\" onmouseOut=\"HideBulle()\">" . $commentaire['articles_id_articles'] . "</a>"; ?></label>
+            associ&eacute; <?php echo "<a href=\"\" onmouseOver=\"AffBulle('Article', '" . $titleArticle . "', 250)\" onmouseOut=\"HideBulle()\">" . $commentaire['articles_id_articles'] . "</a>"; ?></label>
         <label>Utilisateur
-            associé <?php echo "<a href=\"\" onmouseOver=\"AffBulle('Utilisateur', '" . $titleArticle . "', 250)\" onmouseOut=\"HideBulle()\">" . $commentaire['articles_id_articles'] . "</a>"; ?></label>
+            associ&eacute; <?php echo "<a href=\"\" onmouseOver=\"AffBulle('Utilisateur', '" . $titleArticle . "', 250)\" onmouseOut=\"HideBulle()\">" . $commentaire['articles_id_articles'] . "</a>"; ?></label>
 
         <input type="submit" name="modifCom" value="Modifier le commentaire">
     </form>

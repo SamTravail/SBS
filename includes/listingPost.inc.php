@@ -32,7 +32,7 @@ $impaire = false;
 
    <tr>
 
-       <td colspan="2"><form action="index.php?page=listingPost" method="post"><br>Catégorie</td><td colspan="4"><?=$Categories->blockSelectCategorie($catflt,'categorie');?></td><td colspan="3"><input type="submit" name="filtrecat" value="FILTRER"><br></form></td>
+       <td colspan="2"><form action="index.php?page=listingPost" method="post"><br>Cat&eacute;gorie</td><td colspan="4"><?=$Categories->blockSelectCategorie($catflt,'categorie');?></td><td colspan="3"><input type="submit" name="filtrecat" value="FILTRER"><br></form></td>
 
    </tr>
    <tr>
@@ -75,7 +75,7 @@ $impaire = false;
                 $nbCat = $Categories->compteCategoriesArticle($article['id']);
             $txtcat = $Categories->listeCategoriesArticle($article['id']);
 
-                echo "Catégories associées : <a href=\"\" onmouseOver=\"AffBulle('Categories associées', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
+                echo "Cat&eacute;gories associ&eacute;es : <a href=\"\" onmouseOver=\"AffBulle('Cat&eacute;gories associ&eacute;es', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
             ?>
 
             </td>
@@ -90,7 +90,7 @@ $impaire = false;
                     {
                     if ($_SESSION['role_id'] > 2)
                         { ?>
-                            <a href="index.php?page=editPost&id=<?=$article['id']?>">&nbsp;   Editer   </a>
+                            <a href="index.php?page=editPost&id=<?=$article['id']?>">&nbsp;   &Eacute;diter   </a>
                      &nbsp; &nbsp; &nbsp; 
                 <a href="index.php?page=suppPost&id=<?= $article['id'] ?>">Supprimer</a>
                         <?php
@@ -110,6 +110,6 @@ $impaire = false;
         <a id="back2Top" title="Back to top" href="#">&#10148;</a>
     </tbody>
 </table>
-    <form method="post" action="index.php?page=newPost">
-        <input type="submit" name="ajouter" value="Créer un article">
+    <form method="post" action="index.php?page=newPost" class="wrap2">
+        <input type="submit" name="ajouter" value="Cr&eacute;er un article">
     </form>

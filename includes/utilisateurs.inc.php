@@ -30,7 +30,7 @@ $users = $query->fetchAll();
     <thead>
     <tr>
         <th>id</th>
-        <th>Prénom</th>
+        <th>Pr&eacute;nom</th>
         <th>Nom</th>
         <th>Pseudo</th>
         <th>Email</th>
@@ -51,7 +51,7 @@ $users = $query->fetchAll();
             <td><?= $user['mdp'] ?></td>
             <td><?= $Roles->lireNomRole_id($user['role_id']) ?></td>
 
-            <td><a href="index.php?page=editUtilisateur&id=<?= $user['id_utilisateur'] ?>">Editer</a></td>
+            <td><a href="index.php?page=editUtilisateur&id=<?= $user['id_utilisateur'] ?>">&Eacute;diter</a></td>
             <td><a href="index.php?page=suppUtilisateur&id=<?= $user['id_utilisateur'] ?>">Supprimer</a></td>
         </tr>
     <?php } ?>

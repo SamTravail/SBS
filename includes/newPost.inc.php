@@ -55,32 +55,31 @@ if(!empty($_POST['submitted'])) {
 ?>
 
     <h1>Ajouter un Article</h1>
-    <a href="index.php">Retour</a>
+
     <form action="index.php?page=newPost" method="post" novalidate class="wrap2">
         <label for="title">Titre</label>
         <input type="text" name="title" id="title" value="<?php if(!empty($_POST['title'])) { echo $_POST['title']; } ?>">
-        <span class="error"><?php if(!empty($errors['title'])) { echo $errors['title']; } ?></span>
+        <span class="error"><?php if(!empty($errors['title'])) { echo $errors['title']; } ?></span><br><br>
 
         <label for="content">Contenu</label>
         <textarea name="content" id="content" cols="30" rows="10"><?php if(!empty($_POST['content'])) { echo $_POST['content']; } ?></textarea>
-        <span class="error"><?php if(!empty($errors['content'])) { echo $errors['content']; } ?></span>
+        <span class="error"><?php if(!empty($errors['content'])) { echo $errors['content']; } ?></span><br><br>
 
         <label for="auteur">Auteur</label>
         <input type="text" name="auteur" id="auteur" value="<?php if(!empty($_POST['auteur'])) { echo $_POST['auteur']; } ?>">
-        <span class="error"><?php if(!empty($errors['auteur'])) { echo $errors['auteur']; } ?></span>
+        <span class="error"><?php if(!empty($errors['auteur'])) { echo $errors['auteur']; } ?></span><br><br>
         
         <?php
 
         // tableau du status avec key et valeur !
         $status = array(
             'draft' => 'Brouillon',
-            'publish' => 'Publié',
-            'testKey3' => 'Value3'
+            'publish' => 'Publi&eacute;',
         );
 
         ?>
         <select name="status">
-            <option value="">----  /!\  ---- Veuillez choisir le status de l'article ----------</option>
+            <option value="" style="text-align: center">Choisir le status de l'article</option>
             <?php foreach($status as $key => $value) {
                 $selected= '';
                 if(!empty($_POST['status'])) {
@@ -92,8 +91,8 @@ if(!empty($_POST['submitted'])) {
                 <option value="<?php echo $key; ?>"<?php echo $selected; ?>><?php echo $value; ?></option>
             <?php } ?>
         </select>
-        <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
+        <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span><br><br>
 
 
-        <input type="submit" name="submitted" value="Creer un Article !">
+        <input type="submit" name="submitted" value="Cr&eacute;er un Article"><br><br>
     </form>

@@ -33,14 +33,14 @@ include('includes/note.inc.php');
     <?php
     $status = array(
         'draft' => 'Brouillon',
-        'publish' => 'Publi�'
+        'publish' => 'Publi&eacute;'
     );
 
     ?>
     <label for="status">Status</label>
     <p style="background-color: lightgrey"><?php echo $status[$article['status']]?></p>
 
-    <label for="auteur">Categories</label>
+    <label for="auteur">Cat&eacute;gories</label>
     <p style="background-color: lightgrey"><?php echo $Categories->listeCategoriesArticle($article['id']); ?></p>
 
     <label for="auteur">Commentaires</label>

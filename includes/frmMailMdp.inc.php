@@ -29,11 +29,11 @@ if (isset($_POST['frmMailMdp'])) {
     <div>
         <label for="email">E-mail :</label>
         <input type="text" id="email" name="email" value="" />
-    </div>
+    </div><br>
     
     <div>
         
-        <input type="submit" value="ENVOYER LE MAIL" />
+        <input type="submit" value="Envoyer le lien" />
     </div>
     <input type="hidden" name="frmMailMdp" />
 </form>

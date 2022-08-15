@@ -26,7 +26,7 @@
             . "<li><a href=\"index.php\" > Articles</a></li>\n"
             . "<li><a href=\"index.php?page=commentaires\">Commentaires</a></li>\n"
             . "<li><a href=\"index.php?page=note&op=lireNotes\">Notes</a></li>\n"
-            . "<li><a href=\"index.php?page=categories\">Categories</a></li>\n"
+            . "<li><a href=\"index.php?page=categories\">Cat&eacute;gories</a></li>\n"
             . "</div>\n"
             . "<div>\n"
             . "<li><a href=\"index.php?page=utilisateurs\">utilisateurs</a></li>\n"

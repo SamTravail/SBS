@@ -95,8 +95,6 @@ function blockNoter ($id_article,$id_user){
 
     //$infoNote=recupereNoteMoyenne($id_article);
     ?>
-    <label>Noter Article</label>
-    
 
         <label for="note">Nouvelle note : </label>
         <select name="note" id="note">
@@ -135,7 +133,7 @@ function afficheNotes ($notes){?>
     </tr>
     </thead>
 
-    <!-- Affichage des �l�ments r�cupp�r�s dans le tableau -->
+    <!-- Affichage des éléments récuppérés dans le tableau -->
     <tbody>
     <?php foreach ($notes as $note) { ?>
         <tr>
@@ -144,7 +142,7 @@ function afficheNotes ($notes){?>
             <td><?= $note['articles_id_articles'] ?></td>
             <td><?= $note['utilisateurs_id_utilisateurs'] ?></td>
 
-            <td><a href="index.php?page=note&id=<?= $note['id_note'] ?>&op=edit">Editer</a></td>
+            <td><a href="index.php?page=note&id=<?= $note['id_note'] ?>&op=edit">&Eacute;diter</a></td>
             <td><a href="index.php?page=note&id=<?= $note['id_note'] ?>&op=supp">Supprimer</a></td>
         </tr>
     <?php } ?>
@@ -235,7 +233,7 @@ function recupereNoteMoyenne($id_article){
 function editNote ($id_note){
     $note = lireNote($id_note);
     ?>
-    <h1>Edition d'une note</h1>
+    <h1>&Eacute;dition d'une note</h1>
     <form action="" method="post" novalidate class="wrap2">
         <label for="note">note actuelle : <?php echo $note; ?></label><br>
         <label for="note">Nouvelle note : </label>

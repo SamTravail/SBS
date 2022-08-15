@@ -86,10 +86,10 @@ if (!empty($_POST['addCom'])) {
             echo '<input type="text" name="titre" id="titre" placeholder="'.$titre.'">';
         }
         ?>
-        <label for="id">Description</label>
+        <br><br><label for="id">Description</label>
         <textarea name="description" id="description" cols="30" rows="10"><?= $description; ?></textarea><br>
 
-        <label for="id">Article</label>
+        <br><label for="id">Article</label>
 
         <?php
         // nom article preselect ou menu deroulant des articles
@@ -101,7 +101,7 @@ if (!empty($_POST['addCom'])) {
             $Articles->blockSelectArticle(0, "article");
         }
         ?>
-        <label for="id">Utilisateur</label>
+        <br><br><label for="id">Utilisateur</label>
         <?php
 
         if (isset($id_utilisateur)) {
@@ -117,14 +117,14 @@ if (!empty($_POST['addCom'])) {
         ?>
 
 
-        <input type="hidden" name="id_utilisateur" value="1">
+        <br><input type="hidden" name="id_utilisateur" value="1">
         <?php
         if(isset($id_com)){
 
-            echo '<input type="submit" name="addCom" value="Répondre au Commentaire">';
+            echo '<input type="submit" name="addCom" value="R&eacute;pondre au Commentaire">';
         }
         else{
-            echo '<input type="submit" name="addCom" value="Créer un Commentaire">';
+            echo '<input type="submit" name="addCom" value="Cr&eacute;er un Commentaire">';
         }
         ?>
     </form><br>

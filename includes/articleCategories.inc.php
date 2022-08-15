@@ -19,7 +19,7 @@ if (!empty($_POST['associe'])) {
     header("Location: index.php?page=editPost&id=$id_article");
     }
 ?>
-<h1>Associer un article a une categorie</h1>
+<h1>Associer un article a une cat&eacute;gorie</h1>
 <form action="index.php?page=articleCategories" method="post" novalidate class="wrap2">
     <label for="id">Articles</label>
     <?php
@@ -33,9 +33,9 @@ if (!empty($_POST['associe'])) {
     {
     $Articles->blockSelectArticle(0,'article');
     }?>
-    <label for="id">Categories existantes</label>
+    <label for="id">Cat&eacute;gories existantes</label>
     <?php
     $Categories->blockSelectCategorie(0,'categorie');
     ?>
-    <br><br><input type="submit" name="associe" value="Associer Catégorie">
+    <br><br><input type="submit" name="associe" value="Associer Cat&eacute;gorie">
 </form><br>

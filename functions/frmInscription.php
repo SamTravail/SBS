@@ -4,7 +4,7 @@
         <input type="text" id="nom" name="nom" value="<?=$nom?>" />
     </div>
     <div>
-        <label for="prenom">Prénom :</label>
+        <label for="prenom">Pr&eacute;nom :</label>
         <input type="text" id="prenom" name="prenom" value="<?=$prenom?>" />
     </div>
     <div>
@@ -16,11 +16,11 @@
         <input type="password" id="mdp1" name="mdp1" />
     </div>
     <div>
-        <label for="mdp2">Vérification mot de passe :</label>
+        <label for="mdp2">V&eacute;rification mot de passe :</label>
         <input type="password" id="mdp2" name="mdp2" />
     </div>
     <div>
-        <input type="checkbox" name="cgu" id="cgu" value="1"<?=isset($_POST['cgu'])?"checked":'';?> /><label for="cgu" >J'accepte les <a href="index.php?page=cgu" target="_blank">Conditions Générales d'Utilisation</a></label>
+        <input type="checkbox" name="cgu" id="cgu" value="1"<?=isset($_POST['cgu'])?"checked":'';?> /><label for="cgu" >J'accepte les <a href="index.php?page=cgu" target="_blank">Conditions G&eacute;n&eacute;rales d'Utilisation</a></label>
     </div>
     <div>
         <input type="reset" value="Effacer" />

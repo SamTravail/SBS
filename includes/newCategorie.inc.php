@@ -47,15 +47,15 @@ if(!empty($_POST['submitted'])) {
 
 <form action="index.php?page=newCategorie" method="post" novalidate class="wrap2">
     <label for="nom">Nom</label>
-    <input type="text" name="nom" id="nom" placeholder="<?= $nom; ?>">
-    <label for="id">id_parent</label>
+    <input type="text" name="nom" id="nom" placeholder="<?= $nom; ?>"><br><br>
+    <label for="id">Cat&eacute;gorie parente</label>
     <?php $Categories->blockSelectCategorie($categorie['id_parent'],'parent') ?>
     <span class="error"><?php if (!empty($errors['id_parent'])) {
             echo $errors['id_parent'];
-        } ?></span><br>
+        } ?></span><br><br>
 
 
-    <input type="submit" name="submitted" value="Créer une Catégorie">
+    <input type="submit" name="submitted" value="Cr&eacute;er une Cat&eacute;gorie">
 </form><br>
 <?php }
 ?>
