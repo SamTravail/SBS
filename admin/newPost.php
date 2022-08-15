@@ -95,6 +95,6 @@ include('../includes/header-back.php'); ?>
         <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
 
 
-        <input type="submit" name="submitted" value="Ajouter un New Post !">
+        <input type="submit" name="submitted" value="Ajouter un New Post">
     </form>
 <?php include('../includes/footer-back.php');?>

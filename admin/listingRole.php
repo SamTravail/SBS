@@ -30,7 +30,7 @@ include('../includes/header-back.php'); ?>
             <th>id</th>
             <th>titre</th>
             <th>description</th>
-            <th>Editer</th>
+            <th>&Eacute;diter</th>
         </tr>
     </thead>
 
@@ -41,7 +41,7 @@ include('../includes/header-back.php'); ?>
             <td><?= $role['id'] ?></td>
             <td><?= $role['titre'] ?></td>
             <td><?= $role['description'] ?></td>
-            <td><a href="editPost.php?id=<?= $role['id'] ?>">Editer</a></td>
+            <td><a href="editPost.php?id=<?= $role['id'] ?>">&Eacute;diter</a></td>
         </tr>
         <?php } ?>
     </tbody>

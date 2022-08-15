@@ -7,7 +7,7 @@ require('../includes/request.php');
 include('../includes/header-back.php'); ?>
 
 <h1>Dashboard</h1>
-    <p>Interface accessible pour : Modérateurs, Rédacteur et Administrateurs.</p>
+    <p>Interface accessible pour : Mod&eacute;rateurs, R&eacute;dacteur et Administrateurs.</p>
 <ol>
     <li>- CRUD Utilisateur avec affectatiopn des droits</li>
     <p><a href="listingUtilisateurs.php">Listing Utilisateurs</a></p>
@@ -18,4 +18,4 @@ include('../includes/header-back.php'); ?>
 <p><a href="newPost.php">New Post</a></p>
 
 
-<?php include('../includes/footer-back.php');
+<?php include('../includes/footer.php');

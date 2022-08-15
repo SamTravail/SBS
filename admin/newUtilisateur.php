@@ -72,7 +72,7 @@ if(!empty($_POST['submitted'])) {
         <input type="text" name="mdp" id="mdp" value="<?= $user['mdp']; ?>">
         <span class="error"><?php if(!empty($errors['mdp'])) { echo $errors['mdp']; } ?></span>
 
-        <input type="submit" name="submitted" value="Créer un utilisateur' !">
+        <input type="submit" name="submitted" value="Cr&eacute;er un utilisateur">
     </form><br>
 <?php
     }
@@ -101,7 +101,7 @@ if(!empty($_POST['submitted'])) {
     <label for="mdp">Mot de passe</label>
     <input type="text" name="mdp" id="mdp" placeholder="<?= $mdp; ?>">
 
-    <input type="submit" name="submitted" value="Créer un utilisateur' !">
+    <input type="submit" name="submitted" value="Cr&eacute;er un utilisateur">
 </form><br>
 <?php }
 include('../includes/footer-back.php');

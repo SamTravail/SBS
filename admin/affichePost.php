@@ -63,6 +63,6 @@ include('../includes/header-back.php'); ?>
         ?>
 
 
-        <input type="submit" name="submitted" value="Noter le Post !">
+        <input type="submit" name="submitted" value="Noter le Post">
     </form>
-<?php include('../includes/footer-back.php');?>
+<?php include('../includes/footer.php');?>

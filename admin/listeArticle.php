@@ -37,7 +37,7 @@ include('note.php');
 <?php
 $status = array(
     'draft' => 'Brouillon',
-    'publish' => 'Publié'
+    'publish' => 'Publi&eacute;'
 );
 
 ?>

@@ -65,7 +65,7 @@ if(!empty($_POST['submitted'])) {
 }
 include('../includes/header-back.php'); ?>
 
-    <h1>Edition d'un Article</h1>
+    <h1>&Eacute;dition d'un Article</h1>
     <form action="" method="post" novalidate class="wrap2">
         <label for="title">Titre</label>
         <input type="text" name="title" id="title" value="<?= $article['title']; ?>">
@@ -82,7 +82,7 @@ include('../includes/header-back.php'); ?>
         <?php
         $status = array(
             'draft' => 'Brouillon',
-            'publish' => 'Publié'
+            'publish' => 'Publi&eacute;'
         );
 
         ?>
@@ -104,6 +104,6 @@ include('../includes/header-back.php'); ?>
         </select>
         <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
 
-        <input type="submit" name="submitted" value="Modifier le Post !">
+        <input type="submit" name="submitted" value="Modifier le Post">
     </form>
-<?php include('../includes/footer-back.php');?>
+<?php include('../includes/footer.php');?>

@@ -29,7 +29,7 @@ $impaire = false;
 
    <tr>
 
-       <td colspan="2"><form action="index.php?page=listingPost" method="post"><br>Catégorie</td><td colspan="4"><?=$Categories->blockSelectCategorie(0,'categorie');?></td><td colspan="3"><input type="submit" name="filtrecat" value="FILTRER"><br></form></td>
+       <td colspan="2"><form action="index.php?page=listingPost" method="post"><br>Cat&eacute;gorie</td><td colspan="4"><?=$Categories->blockSelectCategorie(0,'categorie');?></td><td colspan="3"><input type="submit" name="filtrecat" value="FILTRER"><br></form></td>
 
    </tr>
    <tr>
@@ -40,14 +40,14 @@ $impaire = false;
    </tr>
     <tr>
         <th>id</th>
-        <th>Title</th>
+        <th>Titre</th>
         <th>Content</th>
         <th>Auteur</th>
         <th>Note</th>
         <th>Nombre de note</th>
-        <th>Nombre catégories</th>
+        <th>Nombre cat&eacute;gories</th>
         <th>Status</th>
-        <th>Editer</th>
+        <th>&Eacute;diter</th>
     </tr>
    </thead>
  
@@ -79,12 +79,12 @@ $impaire = false;
                 $nbCat = $Categories->compteCategoriesArticle($article['id']);
             $txtcat = $Categories->listeCategoriesArticle($article['id']);
 
-                echo "<a href=\"\" onmouseOver=\"AffBulle('Categories associées', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
+                echo "<a href=\"\" onmouseOver=\"AffBulle('Categories associ&eacute;es', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
             ?>
 
             </td>
             <td><?=$article['status']?></td>
-            <td><a href="index.php?page=editPost&id=<?=$article['id']?>">Editer</a></td>
+            <td><a href="index.php?page=editPost&id=<?=$article['id']?>">&Eacute;diter</a></td>
             <td><a href="index.php?page=suppPost&id=<?= $article['id'] ?>">Supprimer</a></td>
 
         </tr>
@@ -93,5 +93,5 @@ $impaire = false;
     </tbody>
 </table>
     <form method="post" action="index.php?page=newPost">
-        <input type="submit" name="ajouter" value="Créer un article">
+        <input type="submit" name="ajouter" value="Cr&eacute;er un article">
     </form>

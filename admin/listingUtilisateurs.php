@@ -29,12 +29,12 @@ include('../includes/header-back.php'); ?>
     <thead>
     <tr>
         <th>id</th>
-        <th>Prénom</th>
+        <th>Pr&eacute;nom</th>
         <th>Nom</th>
         <th>Pseudo</th>
         <th>Email</th>
         <th>Mot de passe</th>
-        <th>Role</th>
+        <th>R&ocirc;le</th>
     </tr>
     </thead>
 
@@ -49,7 +49,7 @@ include('../includes/header-back.php'); ?>
             <td><?= $user['email'] ?></td>
             <td><?= $user['mdp'] ?></td>
             <td><?= $user['role_id'] ?></td>
-            <td><a href="editUtilisateur.php?id=<?= $user['id_utilisateur'] ?>">Editer</a></td>
+            <td><a href="editUtilisateur.php?id=<?= $user['id_utilisateur'] ?>">&Eacute;diter</a></td>
             <td><a href="suppUtilisateur.php?id=<?= $user['id_utilisateur'] ?>">Supprimer</a></td>
         </tr>
     <?php } ?>
@@ -58,4 +58,4 @@ include('../includes/header-back.php'); ?>
 <form method="post" action="newUtilisateur.php">
 <input type="submit" name="ajouter" value="Ajouter un utilisateur">
 </form>
-<?php include('../includes/footer-back.php');
+<?php include('../includes/footer.php');

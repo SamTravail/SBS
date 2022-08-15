@@ -76,14 +76,14 @@ if(!empty($_POST['submitted'])) {
 }
 include('../includes/header-back.php'); ?>
 
-    <h1>Edition d'un Utilisateur</h1>
+    <h1>&Eacute;dition d'un Utilisateur</h1>
     <a href="listingUtilisateurs.php">Retour</a>
     <form action="" method="post" novalidate class="wrap2">
         <label for="id_utilisateur">id_utilisateur</label>
         <input type="text" name="id_utilisateur" id="id_utilisateur" value="<?= $user['id_utilisateur']; ?>"><br>
         <span class="error"><?php if(!empty($errors['id_utilisateur'])) { echo $errors['id_utilisateur']; } ?></span><br>
 
-        <label for="prenom">Prénom</label>
+        <label for="prenom">Pr&eacute;nom</label>
         <input type="text" name="prenom" id="prenom" value="<?= $user['prenom']; ?>">
         <span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span>
 
@@ -110,9 +110,9 @@ include('../includes/header-back.php'); ?>
         <span class="error"><?php if(!empty($errors['role_id'])) { echo $errors['role_id']; } ?></span>
 
         <input type="hidden" name="id" value="<?= $id; ?>">
-        <input type="submit" name="submitted" value="Modifier l'utilisateur' !">
+        <input type="submit" name="submitted" value="Modifier l'utilisateur">
     </form><br>
 
 
-<?php include('../includes/footer-back.php');?>
+<?php include('../includes/footer.php');?>
 

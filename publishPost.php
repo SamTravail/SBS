@@ -18,15 +18,15 @@ $articles = $query->fetchAll();
 ?>
 
 <!-- création tu tableau pour affichage des résultats -->
-<h1>Articles publiés</h1>
+<h1>Articles publi&eacute;s</h1>
 <table id="listfrt">
     <thead>
     <tr>
         <th>Title</th>
         <th>Auteur</th>
         <th>Description</th>
-        <th>Publié le :</th>
-        <th>Modifié le :</th>
+        <th>Publi&eacute; le :</th>
+        <th>Modifi&eacute; le :</th>
 
     </tr>
     </thead>
