@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 13 août 2022 à 15:27
+-- Généré le : lun. 15 août 2022 à 18:50
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -42,15 +42,9 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `content`, `auteur`, `status`, `created_at`, `modified_at`) VALUES
-(1, 'article 1', 'rgtdhgthdt', 'moi', 'draft', '2022-08-09 15:40:52', '2022-08-09 17:40:52'),
-(4, 'Article 4', '4 -ème article de test pour SBS', 'Wam', 'draft', '2022-08-09 18:12:34', '2022-08-09 20:12:34'),
-(6, '1111111111111111', '2222222222222222222222', '111111111111111111111', 'draft', '2022-08-10 11:28:26', '2022-08-10 13:28:26'),
-(7, 'article 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius elementum diam, id euismod enim feugiat ullamcorper. Praesent ante ante, placerat et elit vel, suscipit mattis nunc. Sed vehicula sapien luctus turpis pretium egestas. Praesent ut convallis justo. Donec a turpis vitae ex tristique sollicitudin. Nullam a egestas urna. Pellentesque sit amet velit odio. Cras sit amet placerat leo. Aenean dolor mi, dapibus quis nulla id, tristique eleifend mauris. Integer vitae leo orci.', '333333333333333', 'draft', '2022-08-11 21:38:39', '2022-08-11 23:38:39'),
-(12, '333333333333333', '333333333333333333333', '333333333333333333', 'draft', '2022-08-10 11:28:51', '2022-08-10 13:28:51'),
-(13, '333333333333333', '333333333333333333333', '333333333333333333', 'draft', '2022-08-10 11:28:51', '2022-08-10 13:28:51'),
-(14, 'article 2', 'Etiam vehicula justo sapien, nec porttitor nulla interdum ultrices. In sit amet purus augue. Maecenas bibendum odio felis, quis vestibulum eros facilisis sit amet. Aenean fringilla nisi lectus, eu lacinia est volutpat eu. Maecenas eleifend sem ac eros posuere convallis. Quisque convallis, libero interdum euismod accumsan, purus ipsum varius arcu, eget feugiat nisi lorem at massa. Mauris imperdiet eu justo id malesuada.', '333333333333333333', 'draft', '2022-08-11 21:39:05', '2022-08-11 23:39:05'),
 (15, 'Les logiciels libres recommandés par l\'État', 'Il existe un catalogue des logiciels libres recommandés par l\'État pour toute l\'administration. C\'est le SILL qui vient de bénéficier d\'une mise à jour.', 'Jérôme G.', 'draft', '2022-08-13 09:37:29', '2022-08-13 11:37:29'),
-(16, 'article 3', 'Ut sit amet sapien at massa aliquet luctus nec ac dui. Praesent semper facilisis nisi sit amet tincidunt. Praesent ut elit tempus, vehicula eros nec, vestibulum leo. Proin rutrum lectus id volutpat pretium. Sed luctus diam sollicitudin quam consequat aliquam. Nulla facilisi. Suspendisse hendrerit odio sem, vel tincidunt ligula tempus eget. Aenean ut sapien nec mi pharetra consectetur ac in sapien. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec mattis nec elit nec rhoncus. Phasellus finibus et risus vel porttitor.', '22222222222222222222', 'draft', '2022-08-11 21:39:30', '2022-08-11 23:39:30');
+(20, 'R2798 - Chaise de Maurice Pré (1907-1988)', 'Chaise des années 1950 de Maurice pré, au design minimaliste à la fois fonctionnel et esthétique, avec son piétement en portique laissant poindre deux poignées de préhension qui permettent à l\'hôte de se mouvoir et de déplacer la chaise aisément. Dossier et assise recouverts de son skaï rouge d\'origine : quelques traces d\'usage visibles en photos. La toile de jaconas laisse apparaitre la conception en crin végétal sur ressorts zag. Chaise nettoyée et dans son jus pour une utilisation soignée car elle est aussi devenue aujourd\'hui une pièce de collection. Avis aux amateurs.\r\n\r\nDimensions: L45 X P50 X H81. Assise 45', 'HAMdesign', 'publish', '2022-08-15 16:38:16', '2022-08-15 18:38:16'),
+(21, 'Tests et Bons Plans pour Consommer Malin', 'Nous avons trouvé un outil intéressant pour les internautes en général, puisque les arnaques ne se limitent pas aux achats en ligne et sont susceptibles de toucher n\'importe qui ayant un accès à internet, sur smartphone aussi d\'ailleurs. Nous vous proposons donc de découvrir le guide de prévention des arnaques qui permet de s\'informer sur les différentes techniques et risques, pour être en mesure de les déjouer.\r\n \r\nLe guide de prévention des arnaques : un outil utile mais incomplet\r\n\r\nNous avons découvert un peu par hasard cet outil qui semble utile aux consommateurs, alors nous le partageons avec vous. Si vous nous lisez régulièrement vous devez déjà avoir les bons réflexes pour vous protéger, mais vous ne faites pas partie de la majorité malheureusement, car comme d\'habitude le plus important pour éviter de se faire arnaquer est de s\'informer.', 'wam', 'draft', '2022-08-15 16:45:16', '2022-08-15 18:45:16');
 
 -- --------------------------------------------------------
 
@@ -68,16 +62,9 @@ CREATE TABLE `articles_has_categories` (
 --
 
 INSERT INTO `articles_has_categories` (`articles_id_articles`, `categories_id`) VALUES
-(6, 1),
-(6, 8),
-(7, 1),
-(7, 7),
-(7, 8),
-(10, 1),
-(13, 8),
-(14, 1),
 (15, 0),
-(16, 0);
+(15, 1),
+(21, 1);
 
 -- --------------------------------------------------------
 
@@ -96,10 +83,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `nom`, `id_parent`) VALUES
-(0, 'NUMÉRIQUE', 0),
-(1, 'JEUX VIDEO', 0),
-(7, 'A.V./PHOTO & CINÉ/SÉRIE/MANGA', 0),
-(8, 'MOBILE/TÉLÉCOM & SYSTÈME', 7);
+(0, 'AUCUNE', 0),
+(1, 'High Tech', 0),
+(2, 'Deco', 0),
+(3, 'Sport', 0),
+(4, 'Mode', 0),
+(5, 'Musique', 0);
 
 -- --------------------------------------------------------
 
@@ -113,17 +102,16 @@ CREATE TABLE `commentaires` (
   `description` longtext DEFAULT NULL,
   `date_commentaires` datetime DEFAULT current_timestamp(),
   `articles_id_articles` int(11) NOT NULL,
-  `utilisateurs_id_utilisateur` int(11) NOT NULL
+  `utilisateurs_id_utilisateur` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `commentaires`
 --
 
-INSERT INTO `commentaires` (`id`, `titre`, `description`, `date_commentaires`, `articles_id_articles`, `utilisateurs_id_utilisateur`) VALUES
-(3, 'test', 'test de validate', '2022-08-12 13:15:35', 1, 3),
-(6, 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', '2022-08-12 14:39:29', 6, 1),
-(7, 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbb', '2022-08-12 14:39:43', 6, 1);
+INSERT INTO `commentaires` (`id`, `titre`, `description`, `date_commentaires`, `articles_id_articles`, `utilisateurs_id_utilisateur`, `id_parent`) VALUES
+(4, 'commentaire sam', 'ca c\'est une bonne chaise', '2022-08-15 18:48:05', 20, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -143,32 +131,11 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id_note`, `note`, `articles_id_articles`, `utilisateurs_id_utilisateurs`) VALUES
-(10, 3, 14, 1),
-(11, 3, 14, 1),
-(12, 3, 14, 1),
-(13, 3, 14, 1),
-(14, 3, 14, 1),
-(15, 3, 14, 1),
-(16, 3, 14, 1),
-(17, 3, 14, 1),
-(18, 3, 14, 1),
-(19, 3, 14, 1),
-(20, 3, 14, 1),
-(21, 3, 14, 1),
-(22, 3, 14, 1),
-(23, 3, 14, 1),
-(24, 3, 14, 1),
-(25, 3, 14, 1),
-(26, 3, 14, 1),
-(27, 3, 14, 1),
-(28, 5, 14, 1),
-(29, 5, 14, 1),
-(30, 3, 14, 1),
-(31, 5, 15, 1),
-(32, 3, 15, 1),
-(33, 3, 15, 1),
-(34, 3, 15, 1),
-(35, 3, 15, 1);
+(48, 4, 20, 0),
+(50, 2, 21, 0),
+(51, 2, 21, 0),
+(52, 3, 21, 2),
+(53, 3, 21, 2);
 
 -- --------------------------------------------------------
 
@@ -205,7 +172,7 @@ CREATE TABLE `utilisateurs` (
   `nom` varchar(255) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `mdp` char(40) NOT NULL,
+  `mdp` char(255) NOT NULL,
   `role_id` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -214,12 +181,10 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `pseudo`, `email`, `mdp`, `role_id`) VALUES
-(1, 'sam', 'test', 'wam1', 'samva@free.fr', 'samsbs', 4),
-(2, 'redac', 'teur test', 'redac', 'redacteur@none.com', 'redacteur', 4),
-(3, 'mode', 'rateur', 'moderateur', 'moderateur@none.com', 'moderateur', 3),
-(4, 'utili', 'sateur inscrit', 'utilisateur inscrit', 'utilisateur@none.com', 'utilisateurinscrit', 2),
-(5, 'visi', 'teur', 'visiteur', 'visiteur@none.com', 'visiteur', 1),
-(15, 'dddd', 'dddddddddddddddd', 'dddddddddddddd', 'dddddddddddddd', 'ddddddddddddddddd', 2);
+(0, 'Sam', 'NRV', 'SamNRV', 'samva@free.fr', '$2y$10$kQPtAl9vjLNYpfAoPz8RR.zTgGZXUT/i6E3Ml7fbAPHcVDC7nQpHm', 4),
+(1, 'redacteur', 'redacteur', 'redacteur', 'redacteur@none.com', '$2y$10$XxfEkwZPjKL69p4EnO4a7uK3BV6.tyAxhwNp3P9KxGlAO/jFcaLWS', 3),
+(2, 'mode', 'rateur', 'moderateur', 'moderateur@none.fr', '$2y$10$thRznMr970.M5GE3DgW3quk/HdduCD2QJivncXjClZOIJx9me2DfS', 2),
+(3, 'utilisateur', 'inscrit', 'userinscrit', 'userinscrit@none.fr', '$2y$10$nr9nWdBJuJLlDWV4rAcedu8dasX.n4c.cFczkgZ4uAImV6ICHnYMq', 1);
 
 --
 -- Index pour les tables déchargées
@@ -250,8 +215,8 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `commentaires`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `articles_id_articles` (`articles_id_articles`),
-  ADD KEY `utilisateurs_id_utilisateur` (`utilisateurs_id_utilisateur`);
+  ADD KEY `commentaires_ibfk_1` (`articles_id_articles`),
+  ADD KEY `commentaires_ibfk_2` (`utilisateurs_id_utilisateur`);
 
 --
 -- Index pour la table `notes`
@@ -281,25 +246,25 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id_note` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_note` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
@@ -311,7 +276,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
@@ -321,22 +286,22 @@ ALTER TABLE `utilisateurs`
 -- Contraintes pour la table `articles_has_categories`
 --
 ALTER TABLE `articles_has_categories`
-  ADD CONSTRAINT `articles_has_categories_ibfk_1` FOREIGN KEY (`articles_id_articles`) REFERENCES `articles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `articles_has_categories_ibfk_2` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `articles_has_categories_ibfk_1` FOREIGN KEY (`articles_id_articles`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `articles_has_categories_ibfk_2` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`articles_id_articles`) REFERENCES `articles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `commentaires_ibfk_2` FOREIGN KEY (`utilisateurs_id_utilisateur`) REFERENCES `utilisateurs` (`id_utilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`articles_id_articles`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `commentaires_ibfk_2` FOREIGN KEY (`utilisateurs_id_utilisateur`) REFERENCES `utilisateurs` (`id_utilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `notes`
 --
 ALTER TABLE `notes`
-  ADD CONSTRAINT `fk_notes_articles1` FOREIGN KEY (`articles_id_articles`) REFERENCES `articles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_notes_utilisateurs1` FOREIGN KEY (`utilisateurs_id_utilisateurs`) REFERENCES `utilisateurs` (`id_utilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_notes_articles1` FOREIGN KEY (`articles_id_articles`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_notes_utilisateurs1` FOREIGN KEY (`utilisateurs_id_utilisateurs`) REFERENCES `utilisateurs` (`id_utilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
