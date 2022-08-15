@@ -7,6 +7,7 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
 // function getId($id) {
     global $pdo;
+
     $sql = "DELETE FROM articles WHERE id = :id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':id', $id, PDO::PARAM_INT);

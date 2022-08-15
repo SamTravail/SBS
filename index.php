@@ -12,6 +12,7 @@ require('functions/pdo.php');
 require('includes/fonction.php');
 require('includes/request.php');
 
+$Utilisateurs = new Utilisateurs();
 $Commentaires = new Commentaires();
 $Utilisateurs = new Utilisateurs();
 $Articles = new Articles();

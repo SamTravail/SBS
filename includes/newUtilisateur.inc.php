@@ -37,6 +37,7 @@ if(!empty($_POST['submitted'])) {
     // Si pas d'erreurs, alors :
     if(count($errors) === 0) {
         // die('ok');
+        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         // Update dans la BDD
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $sql2 = "INSERT INTO utilisateurs (prenom, nom, pseudo, email, mdp) VALUES (:prenom, :nom, :pseudo, :email, :mdp)";
