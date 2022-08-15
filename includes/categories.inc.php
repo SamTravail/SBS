@@ -55,6 +55,6 @@ $categories = $query->fetchAll();
 
 
 
-<form method="post" action="index.php?page=newCategorie">
+<form method="post" action="index.php?page=newCategorie" class="wrap2">
 <input type="submit" name="ajouter" value="Ajouter une Catégorie">
 </form>

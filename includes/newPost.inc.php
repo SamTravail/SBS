@@ -43,7 +43,7 @@ if(!empty($_POST['submitted'])) {
         $last_id = $pdo->lastInsertId();
 
         // retour apres injection
-         header('Location: listingPost.php');
+         header('Location: index.php?page=listingPost');
 
         // Formulaire soumis !
        $success = true;

@@ -8,7 +8,7 @@ global $pdo, $Utilisateurs;
 
 ?>
 
-<form action="index.php?page=inscription" method="post" novalidate class="wrap2">
+<form action="index.php?page=inscription" method="post" class="wrap2">
     <div>
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" value="<?=$nom ?>"/>
@@ -30,12 +30,9 @@ global $pdo, $Utilisateurs;
         <input type="password" id="mdp2" name="mdp2"/>
     </div>
     <div>
-        <table>
-            <tr>
-                <td><input type="checkbox" name="cgu" id="cgu" value="1"<?= isset($_POST['cgu']) ? "checked" : ''; ?> /></td>
-                <td><label for="cgu">J'accepte les <a href="index.php?page=cgu" target="_blank">Conditions Générales d'Utilisation</a></label></td>
-            </tr>
-        </table>
+        <table><tr><td><input type="checkbox" name="cgu" id="cgu" value="1"<?= isset($_POST['cgu']) ? "checked" : ''; ?> /></td><td>
+        <label for="cgu">J'accepte les <a href="index.php?page=cgu" target="_blank">Conditions Générales
+                d'Utilisation </a></label></td></tr></table>
     </div>
     <div>
         <input type="reset" value="Effacer"/>

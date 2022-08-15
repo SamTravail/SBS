@@ -4,12 +4,12 @@ class Commentaires
 {
     private array $commentaires;
     private array $tab_id_commentaires;
-    private string $sql_select = "SELECT id, titre, description, articles_id_articles, utilisateurs_id_utilisateur, date_commentaires FROM commentaires ORDER BY date_commentaires DESC ";
+    private string $sql_select = "SELECT id, titre, description, articles_id_articles, utilisateurs_id_utilisateur, date_commentaires, id_parent FROM commentaires ORDER BY date_commentaires DESC ";
     private string $sql_update = "UPDATE commentaires SET titre= :titre, description= :description WHERE id= :id";
     private string $sql_delete = "DELETE FROM commentaires WHERE id = :id";
     private string $sql_insert_commentaires_article = "INSERT INTO commentaires (articles_id_articles, utilisateurs_id_utilisateur, titre, description) VALUES (:id_article, :id_utilisateur, :titre, :description)";
-    private string $sql_rep_commentaires_article = "INSERT INTO commentaires (articles_id_articles, utilisateurs_id_utilisateur, titre, description, id_parent) VALUES (:id_article, :id_utilisateur, :titre, :description, :id_parent)";
-    private string $sql_commentaires_article = "SELECT * FROM commentaires WHERE articles_id_articles=:id_article";
+    private string $sql_rep_commentaires_article = "INSERT INTO commentaires (articles_id_articles, utilisateurs_id_utilisateur, titre, description, id_parent) VALUES (:id_article, :id_utilisateur, :titre, :description,:id_parent)";
+    private string $sql_commentaires_article = "SELECT * FROM commentaires WHERE articles_id_articles=:id_article ORDER BY id_parent ASC";
 
     //private object $pdo;
     private object $query;
@@ -25,7 +25,6 @@ class Commentaires
         $this->commentaires = $this->query->fetchAll();
 
     }
-
     public function compteCommentaires($id_article)
     {
         global $pdo;
@@ -37,7 +36,6 @@ class Commentaires
         return count($this->commentairesArticle);
 
     }
-
     public function addCommentaire($id_article,$id_utilisateur,$titre,$description): void
     {
         global $pdo;
@@ -48,9 +46,9 @@ class Commentaires
         $this->query->bindValue(':description',$description, PDO::PARAM_STR);
         $this->query->execute();
 
-    }
 
-    public function repCommentaire($id_article,$id_utilisateur,$titre,$description, $id_parent): void
+    }
+    public function repCommentaire($id_article,$id_utilisateur,$titre,$description,$id_parent): void
     {
         global $pdo;
         $this->query = $pdo->prepare($this->sql_rep_commentaires_article);
@@ -60,6 +58,7 @@ class Commentaires
         $this->query->bindValue(':description',$description, PDO::PARAM_STR);
         $this->query->bindValue(':id_parent',$id_parent, PDO::PARAM_INT);
         $this->query->execute();
+
 
     }
 
@@ -72,7 +71,33 @@ class Commentaires
             foreach ($this->commentairesArticle as $commentaire) {
                 $idcom = $commentaire['id'];
                 $txt = $this->lireTitreCommentaire($idcom);
-                $txtcom = $txtcom . $txt . "<br>";
+                $descr = $this->lireCommentaire($idcom)['description'];
+                $id_parent = $this->lireCommentaire($idcom)['id_parent'];
+                if($id_parent !=0)
+                    {
+                        while($id_parent !=0)
+                        {
+                            //echo "parent trouve";
+                            $cat_parent = $this->lireCommentaire($id_parent);
+                            $nomparent = $cat_parent['titre'];
+                            $txt =$txt.'<br>  - '.$nomparent;
+                            $descr = $cat_parent['description'].'<br>  - '.$descr;
+                            $id_parent = $cat_parent['id_parent'];
+                        }
+
+                        $txtcom = $txtcom ."<a href=\"\" onmouseOver=\"AffBulle('Description', '".$descr."', 250)\" onmouseOut=\"HideBulle()\">".$txt."</a>". "<br>";
+
+                    }
+                else{
+
+                    $txtcom = $txtcom ."<a href=\"\" onmouseOver=\"AffBulle('Description', '".$descr."', 250)\" onmouseOut=\"HideBulle()\">".$txt."</a>". "<br>";
+                }
+
+
+
+
+                //$txtcom = $txtcom . $txt . "<br>";
+                
             }
         }
         else {  $txtcom="pas de texte !";

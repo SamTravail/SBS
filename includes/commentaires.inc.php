@@ -3,7 +3,7 @@
 // APPEL DES VARIABLES GLOBAL
 global $pdo, $Commentaires, $Articles, $Categories;
 
-// Réccupération de l'ID
+// Rï¿½ccupï¿½ration de l'ID
 //************************* Recupere id article pour edition
 if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = $_GET['id'];
@@ -45,7 +45,7 @@ else
     </tr>
    </thead>
 
-    <!-- affichage des éléments récuppérés dans le tableau -->
+    <!-- affichage des ï¿½lï¿½ments rï¿½cuppï¿½rï¿½s dans le tableau -->
     <tbody>
 
         <?php
@@ -75,8 +75,8 @@ else
 
             //$nomUtilisateur = $utilisateurs->lireNomUtilisateur($commentaire['utilisateurs_id_utilisateur']);
 
-                echo "<a href=\"\" onmouseOver=\"AffBulle('Article associé', '".$titleArticle."', 250)\" onmouseOut=\"HideBulle()\">".$commentaire['articles_id_articles']."</a>";
-            // echo "<a href=\"\" onmouseOver=\"AffBulle('Utilisateur associé', '".$nomUtilisateur."', 250)\" onmouseOut=\"HideBulle()\">".$commentaire['utilisateurs_id_utilisateur']."</a>";
+                echo "<a href=\"\" onmouseOver=\"AffBulle('Article associÃ©', '".$titleArticle."', 250)\" onmouseOut=\"HideBulle()\">".$commentaire['articles_id_articles']."</a>";
+            // echo "<a href=\"\" onmouseOver=\"AffBulle('Utilisateur associï¿½', '".$nomUtilisateur."', 250)\" onmouseOut=\"HideBulle()\">".$commentaire['utilisateurs_id_utilisateur']."</a>";
 
             ?>
 
@@ -91,7 +91,7 @@ else
     </tbody>
 </table>
     <form method="post" action="index.php?page=newCommentaire">
-        <input type="submit" name="ajouter" value="Créer un commentaire">
+        <input type="submit" name="ajouter" value="CrÃ©er un commentaire">
     </form>
 
 

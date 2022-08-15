@@ -8,13 +8,12 @@ spl_autoload_register(function ($className) {
 });
 
 require_once './functions/autoInclude.php';
-
 require('functions/pdo.php');
 require('includes/fonction.php');
 require('includes/request.php');
 
-$Utilisateurs = new Utilisateurs();
 $Commentaires = new Commentaires();
+$Utilisateurs = new Utilisateurs();
 $Articles = new Articles();
 $Categories = new Categories();
 $Roles = new Roles();
