@@ -2,7 +2,7 @@
 global $pdo, $Categories, $Commentaires;
 //require('includes/fonction.php');
 
-// Réccupération de l'ID
+// R�ccup�ration de l'ID
 if(!empty($_GET['article']) && ctype_digit($_GET['article'])) {
     $id = $_GET['article'];
     $sql = "SELECT * FROM articles WHERE id = :id";
@@ -33,7 +33,7 @@ include('includes/note.inc.php');
     <?php
     $status = array(
         'draft' => 'Brouillon',
-        'publish' => 'Publi&eacute;'
+        'publish' => 'Publi�'
     );
 
     ?>

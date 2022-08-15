@@ -43,7 +43,7 @@ $categories = $query->fetchAll();
             <td><?= $categorie['id'] ?></td>
             <td><?= $categorie['nom'] ?></td>
             <td><?= $categorie['id_parent'] ?></td>
-            <td><a href="index.php?page=editCategorie&id=<?= $categorie['id'] ?>">&Eacute;diter</a></td>
+            <td><a href="index.php?page=editCategorie&id=<?= $categorie['id'] ?>">Editer</a></td>
             <td><a href="index.php?page=suppCategorie&id=<?= $categorie['id'] ?>">Supprimer</a></td>
         </tr>
     <?php } ?>

@@ -43,7 +43,7 @@ if(!empty($_POST['submitted'])) {
         $last_id = $pdo->lastInsertId();
 
         // retour apres injection
-         header('Location: index.php?page=listingPost.php');
+         header('Location: index.php?page=listingPost');
 
         // Formulaire soumis !
        $success = true;
@@ -74,7 +74,8 @@ if(!empty($_POST['submitted'])) {
         // tableau du status avec key et valeur !
         $status = array(
             'draft' => 'Brouillon',
-            'publish' => 'Publi&eacute;',
+            'publish' => 'Publié',
+            'testKey3' => 'Value3'
         );
 
         ?>
@@ -94,5 +95,5 @@ if(!empty($_POST['submitted'])) {
         <span class="error"><?php if(!empty($errors['status'])) { echo $errors['status']; } ?></span>
 
 
-        <input type="submit" name="submitted" value="Cr&eacute;er un Article !">
+        <input type="submit" name="submitted" value="Creer un Article !">
     </form>

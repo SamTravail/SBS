@@ -75,7 +75,7 @@ $impaire = false;
                 $nbCat = $Categories->compteCategoriesArticle($article['id']);
             $txtcat = $Categories->listeCategoriesArticle($article['id']);
 
-                echo "Catégories associées : <a href=\"\" onmouseOver=\"AffBulle('Categories associ&eacute;es', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
+                echo "Catégories associées : <a href=\"\" onmouseOver=\"AffBulle('Categories associées', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
             ?>
 
             </td>
@@ -90,7 +90,7 @@ $impaire = false;
                     {
                     if ($_SESSION['role_id'] > 2)
                         { ?>
-                            <a href="index.php?page=editPost&id=<?=$article['id']?>">&nbsp;   &Eacute;diter   </a>
+                            <a href="index.php?page=editPost&id=<?=$article['id']?>">&nbsp;   Editer   </a>
                      &nbsp; &nbsp; &nbsp; 
                 <a href="index.php?page=suppPost&id=<?= $article['id'] ?>">Supprimer</a>
                         <?php
@@ -110,6 +110,6 @@ $impaire = false;
         <a id="back2Top" title="Back to top" href="#">&#10148;</a>
     </tbody>
 </table>
-    <form method="post" action="index.php?page=newPost" class="wrap2">
-        <input type="submit" name="Ajouter" value="Cr&eacute;er un article">
+    <form method="post" action="index.php?page=newPost">
+        <input type="submit" name="ajouter" value="Créer un article">
     </form>

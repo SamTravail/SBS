@@ -135,7 +135,7 @@ function afficheNotes ($notes){?>
     </tr>
     </thead>
 
-    <!-- Affichage des &eacute;l&eacute;ments r&eacute;cupp&eacute;r&eacute;s dans le tableau -->
+    <!-- Affichage des �l�ments r�cupp�r�s dans le tableau -->
     <tbody>
     <?php foreach ($notes as $note) { ?>
         <tr>
@@ -144,7 +144,7 @@ function afficheNotes ($notes){?>
             <td><?= $note['articles_id_articles'] ?></td>
             <td><?= $note['utilisateurs_id_utilisateurs'] ?></td>
 
-            <td><a href="index.php?page=note&id=<?= $note['id_note'] ?>&op=edit">&Eacute;diter</a></td>
+            <td><a href="index.php?page=note&id=<?= $note['id_note'] ?>&op=edit">Editer</a></td>
             <td><a href="index.php?page=note&id=<?= $note['id_note'] ?>&op=supp">Supprimer</a></td>
         </tr>
     <?php } ?>

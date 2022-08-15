@@ -82,7 +82,7 @@ else
 
             </td>
             <td><?=$commentaire['utilisateurs_id_utilisateur']?></td>
-            <td><a href="index.php?page=editCommentaires&id=<?=$commentaire['id']?>">&Eacute;diter</a></td>
+            <td><a href="index.php?page=editCommentaires&id=<?=$commentaire['id']?>">Editer</a></td>
             <td><a href="index.php?page=suppCommentaire&id=<?= $commentaire['id'] ?>">Supprimer</a></td>
 
         </tr>
@@ -90,7 +90,7 @@ else
 
     </tbody>
 </table>
-    <form method="post" action="index.php?page=newCommentaire" class="wrap2">
+    <form method="post" action="index.php?page=newCommentaire">
         <input type="submit" name="ajouter" value="Créer un commentaire">
     </form>
 

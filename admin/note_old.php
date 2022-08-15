@@ -1,7 +1,7 @@
 <?php
 
 
-// Réccupération de l'ID
+// Rï¿½ccupï¿½ration de l'ID
 if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = $_GET['id'];
 }
@@ -53,35 +53,35 @@ if(!empty($_POST['modifNote']))
 function toutesLesNotes()
 {
     global $pdo;
-    // Selection dans la BDD Notes, et affichage par ordre décroissant
+    // Selection dans la BDD Notes, et affichage par ordre dï¿½croissant
     $select_notes = "SELECT * FROM notes";
     $query = $pdo->prepare($select_notes);
     $query->execute();
-    // Affiche le résultat
+    // Affiche le rï¿½sultat
     $notes = $query->fetchAll();
     echo "cccccccccccccouoooouuuuuunt".count($notes);
     return $notes;
 }
 function lireNotes ($id_article){
     global $pdo;
-    // Selection dans la BDD Notes, et affichage par ordre décroissant
+    // Selection dans la BDD Notes, et affichage par ordre dï¿½croissant
     $select_notes = "SELECT * FROM notes  WHERE articles_id_articles=:id_article";
     $query = $pdo->prepare($select_notes);
     $query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
     $query->execute();
-    // Affiche le résultat
+    // Affiche le rï¿½sultat
     $notes = $query->fetchAll();
     return $notes;
 }
 function lireNote ($id_note){
     global $pdo;
 
-// Selection dans la BDD Notes, et affichage par ordre décroissant
+// Selection dans la BDD Notes, et affichage par ordre dï¿½croissant
     $select_note = "SELECT note FROM notes  WHERE id_note= :id_note";
     $query = $pdo->prepare($select_note);
     $query->bindValue(':id_note',$id_note, PDO::PARAM_INT);
     $query->execute();
-// Affiche le résultat
+// Affiche le rï¿½sultat
     $note = $query->fetch();
     return $note['note'];
 }
@@ -92,7 +92,7 @@ function blockInfoNote ($id_article){
 ?>
         <label>Informations note</label>
         <p>Note : <?php echo $infoNote[0]; ?> / 5</p>
-    <p>Nombre de notes :<a href="note.php?op=lire&id=<?= $id_article ?>" ><?php echo $infoNote[1]; ?> </a></p>
+    <p>Nombre de notes :<a href="admin/note.php?op=lire&id=<?= $id_article ?>" ><?php echo $infoNote[1]; ?> </a></p>
 
 <?php
 }
@@ -103,7 +103,7 @@ function blockNoter ($id_article,$id_user){
     <label>Noter Article</label>
     <form action="note.php?op=noter" method="post" novalidate class="wrap2">
 
-        <label for="note">Nouvelle !!! note : </label>
+        <label for="note">Nouvelle note : </label>
         <select name="note" id="note">
             <?php
             $i=0;
@@ -139,7 +139,7 @@ function afficheNotes ($notes){?>
     </tr>
     </thead>
 
-    <!-- Affichage des éléments récuppérés dans le tableau -->
+    <!-- Affichage des ï¿½lï¿½ments rï¿½cuppï¿½rï¿½s dans le tableau -->
     <tbody>
     <?php foreach ($notes as $note) { ?>
         <tr>
@@ -165,7 +165,7 @@ function insertNote ($note, $id_article, $id_utilisateur): void
 {
     require('functions/pdo.php');
     $sql_insert="INSERT INTO notes (id_note, note, articles_id_articles, utilisateurs_id_utilisateurs) VALUES (NULL, :note, :id_article, :id_utilisateur)";
-    // Préparation pour l'injection SQL
+    // Prï¿½paration pour l'injection SQL
     $query = $pdo->prepare($sql_insert);
     $query->bindValue(':note',floatval($note), PDO::PARAM_INT);
     $query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
@@ -262,7 +262,7 @@ function editNote ($id_note){
 
 
         <input type="hidden" name="id_note" value="<?= $id_note; ?>">
-        <input type="submit" name="modifNote" value="Modifier 1 la note">
+        <input type="submit" name="modifNote" value="Modifier la note">
     </form><br>
     <?php
 }

@@ -11,7 +11,7 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
 ?>
 
-<h2>Catégorie Supprim&eacute;e</h2>
+<h2>Catégorie Supprimée</h2>
 <form method="post" action="index.php?page=categories">
-    <input type="submit" value="Retour aux Cat&eacute;gories">
+    <input type="submit" value="Retour aux Catégories">
 </form>

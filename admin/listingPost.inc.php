@@ -17,7 +17,7 @@ if(!empty($_POST['filtrecat'])&& ctype_digit($_POST['filtrecat']))
 
 // ajout du header-back pour retour index-back !
 //include('includes/header-back.php');
-require_once('includes/note.inc.php');
+include('includes/note.inc.php');
 $impaire = false;
 ?>
 <!-- création tu tableau pour affichage des résultats -->

@@ -37,7 +37,6 @@ if(!empty($_POST['submitted'])) {
     // Si pas d'erreurs, alors :
     if(count($errors) === 0) {
         // die('ok');
-        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         // Update dans la BDD
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $sql2 = "INSERT INTO utilisateurs (prenom, nom, pseudo, email, mdp) VALUES (:prenom, :nom, :pseudo, :email, :mdp)";
@@ -79,7 +78,7 @@ if(!empty($_POST['submitted'])) {
         <input type="text" name="mdp" id="mdp" value="<?= $user['mdp']; ?>">
         <span class="error"><?php if(!empty($errors['mdp'])) { echo $errors['mdp']; } ?></span>
 
-        <input type="submit" name="submitted" value="Cr&eacute;er un utilisateur' !">
+        <input type="submit" name="submitted" value="Créer un utilisateur' !">
     </form><br>
 <?php
     }
@@ -108,7 +107,7 @@ if(!empty($_POST['submitted'])) {
     <label for="mdp">Mot de passe</label>
     <input type="text" name="mdp" id="mdp" placeholder="<?= $mdp; ?>">
 
-    <input type="submit" name="submitted" value="Cr&eacute;er un utilisateur">
+    <input type="submit" name="submitted" value="Créer un utilisateur' !">
 </form><br>
 <?php }
 ?>
