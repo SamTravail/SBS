@@ -1,7 +1,7 @@
 <h1>Login</h1>
 
 <?php
-
+global $Utilisateurs, $pdo;
 if (isset($_POST['frmLogin'])) {
     $email = isset($_POST['email']) ? htmlentities(trim($_POST['email'])) : "";
     $mdp = isset($_POST['mdp']) ? htmlentities(trim($_POST['mdp'])) :  "";
@@ -30,23 +30,24 @@ if (isset($_POST['frmLogin'])) {
 
         echo $messageErreurs;
 
-        require '../includes/frmLogin.php';
+        require 'includes/frmLogin.php';
 
-        $insertionSql = new Sql();
+        //$insertionSql = new Sql();
 
     } else {
-        if (verifierLogin($email,$mdp)) {
+        if ($Utilisateurs->verifierLogin($email,$mdp)) {
             $recupDatasUser = "SELECT * FROM utilisateurs WHERE email='$email'";
-            if ($pdo = pdo()) {
+            if (isset($pdo)) {
                 $datasUser = $pdo->query($recupDatasUser);
                 $datasUser = $datasUser->fetchAll();
                 $_SESSION['prenom'] = $datasUser[0]['prenom'];
                 $_SESSION['nom'] = $datasUser[0]['nom'];
-                $_SESSION['role'] = $datasUser[0]['role'];
+                $_SESSION['role_id'] = $datasUser[0]['role_id'];
+                $_SESSION['user_id'] = $datasUser[0]['id_utilisateur'];
             }
 
             $_SESSION['login'] = true;
-            echo "<script>window.location.replace('http://localhost/sbs/index.php?page=accueil')</script>";
+            echo "<script>window.location.replace('https://localhost/sbs/index.php')</script>";
         } else {
             echo "Erreur dans votre login/password";
         }
@@ -54,5 +55,5 @@ if (isset($_POST['frmLogin'])) {
 
 } else {
     $email = "";
-    require '../includes/frmLogin.php';
+    require 'includes/frmLogin.php';
 }

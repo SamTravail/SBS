@@ -32,14 +32,14 @@ if (!empty($_POST['submitted'])) {
 
     // Vérification des champs pour validation
     $errors = validText($errors, $nom, 'nom', 1, 100);
-
+    echo "-------------------".$id.$nom.$id_parent;
     // Si pas d'erreurs, alors :
     if (count($errors) === 0) {
         $Categories->updateCategorie($id, $nom, $id_parent);
 
         // retour apres injection
 
-        header('Location: index.php?page=categories');
+        //header('Location: index.php?page=categories');
 
         // Formulaire soumis !
         $success = true;

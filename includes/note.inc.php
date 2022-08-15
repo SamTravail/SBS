@@ -1,11 +1,11 @@
 <?php
 
 
-// Réccupération de l'ID
+// Rï¿½ccupï¿½ration de l'ID
 if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = $_GET['id'];
 }
-    if(!empty($_GET['op'])){
+if(!empty($_GET['op'])){
         $op = $_GET['op'];
         if ($op=='edit'){
             //include('includes/header-back.php');
@@ -26,11 +26,11 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
             }
     }
 
-if(!empty($_POST['addNote'])) {
-    $note = $_POST['note'];
+if(isset($_POST['addNote'])) {
+    $note =$_POST['note'];
     $id_article = $_POST['id_article'];
     $id_user = $_POST['id_user'];
-
+    
     insertNote ($note, $id_article, $id_user);
 
     }
@@ -49,34 +49,34 @@ if(!empty($_POST['modifNote']))
 function toutesLesNotes()
 {
     global $pdo;
-    // Selection dans la BDD Notes, et affichage par ordre décroissant
+    // Selection dans la BDD Notes, et affichage par ordre dï¿½croissant
     $select_notes = "SELECT * FROM notes";
     $query = $pdo->prepare($select_notes);
     $query->execute();
-    // Affiche le résultat
+    // Affiche le rï¿½sultat
     $notes = $query->fetchAll();
     return $notes;
 }
 
 function lireNotes ($id_article){
     global $pdo;
-    // Selection dans la BDD Notes, et affichage par ordre décroissant
+    // Selection dans la BDD Notes, et affichage par ordre dï¿½croissant
     $select_notes = "SELECT * FROM notes  WHERE articles_id_articles=:id_article";
     $query = $pdo->prepare($select_notes);
     $query->bindValue(':id_article',$id_article, PDO::PARAM_INT);
     $query->execute();
-    // Affiche le résultat
+    // Affiche le rï¿½sultat
     $notes = $query->fetchAll();
     return $notes;
 }
 function lireNote ($id_note){
     global $pdo;
-// Selection dans la BDD Notes, et affichage par ordre décroissant
+// Selection dans la BDD Notes, et affichage par ordre dï¿½croissant
     $select_note = "SELECT note FROM notes  WHERE id_note= :id_note";
     $query = $pdo->prepare($select_note);
     $query->bindValue(':id_note',$id_note, PDO::PARAM_INT);
     $query->execute();
-// Affiche le résultat
+// Affiche le rï¿½sultat
     $note = $query->fetch();
     return $note['note'];
 }
@@ -96,7 +96,7 @@ function blockNoter ($id_article,$id_user){
     //$infoNote=recupereNoteMoyenne($id_article);
     ?>
     <label>Noter Article</label>
-    <form action="index.php?page=note&op=noter" method="post" novalidate class="wrap2">
+    
 
         <label for="note">Nouvelle note : </label>
         <select name="note" id="note">
@@ -116,8 +116,8 @@ function blockNoter ($id_article,$id_user){
         </select>
         <input type="hidden" name="id_article" value="<?= $id_article; ?>">
         <input type="hidden" name="id_user" value="<?= $id_user; ?>">
-        <input type="submit" name="addNote" value="Noter">
-    </form><br>
+        <input type="submit" name="addNote" id="addNote" value="Noter">
+    <br>
     <?php
 }
 
@@ -135,7 +135,7 @@ function afficheNotes ($notes){?>
     </tr>
     </thead>
 
-    <!-- Affichage des éléments récuppérés dans le tableau -->
+    <!-- Affichage des ï¿½lï¿½ments rï¿½cuppï¿½rï¿½s dans le tableau -->
     <tbody>
     <?php foreach ($notes as $note) { ?>
         <tr>
@@ -160,8 +160,8 @@ function afficheNotes ($notes){?>
 function insertNote ($note, $id_article, $id_utilisateur): void
 {
     global $pdo;
-    $sql_insert="INSERT INTO notes (id_note, note, articles_id_articles, utilisateurs_id_utilisateurs) VALUES (NULL, :note, :id_article, :id_utilisateur)";
-    // Préparation pour l'injection SQL
+    $sql_insert="INSERT INTO notes (note, articles_id_articles, utilisateurs_id_utilisateurs) VALUES (:note, :id_article, :id_utilisateur)";
+    // Prï¿½paration pour l'injection SQL
     $query = $pdo->prepare($sql_insert);
     $query->bindValue(':note',floatval($note), PDO::PARAM_INT);
     $query->bindValue(':id_article',$id_article, PDO::PARAM_INT);

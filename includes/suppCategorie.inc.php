@@ -1,7 +1,7 @@
 <?php
 
 global $pdo,$Categories;
-// Réccupération de l'ID
+// RÃ©ccupÃ©ration de l'ID
 if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = $_GET['id'];
 
@@ -11,7 +11,7 @@ if(!empty($_GET['id']) && ctype_digit($_GET['id'])) {
 
 ?>
 
-<h2>Catégorie Supprimée</h2>
+<h2>CatÃ©gorie SupprimÃ©e</h2>
 <form method="post" action="index.php?page=categories">
-    <input type="submit" value="Retour aux Catégories">
+    <input type="submit" value="Retour aux CatÃ©gories">
 </form>

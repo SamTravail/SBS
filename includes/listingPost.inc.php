@@ -4,12 +4,14 @@ global $pdo, $Categories,$Articles;
 if(!empty($_POST['filtrecat']))
 {
     $filtreCat = $_POST['categorie'];
-    echo "*******************************************".$filtreCat;
+    echo "Filtre : ".$filtreCat;
     $articles = $Articles->lireArticlesCategorie($filtreCat);
-    echo "*******************************************".count($articles);
+    echo "Nbarticle : ".count($articles);
+    $catflt = $filtreCat;
 
 }else{
     $articles = $Articles->articlesdate;
+    $catflt = 0;
 }
 
 ?>
@@ -18,7 +20,7 @@ if(!empty($_POST['filtrecat']))
 
 // ajout du header-back pour retour index-back !
 //include('includes/header-back.php');
-require_once('admin/note.php');
+require_once('includes/note.inc.php');
 $impaire = false;
 ?>
 <!-- création tu tableau pour affichage des résultats -->
@@ -30,26 +32,14 @@ $impaire = false;
 
    <tr>
 
-       <td colspan="2"><form action="index.php?page=listingPost" method="post"><br>Catégorie</td><td colspan="4"><?=$Categories->blockSelectCategorie(0,'categorie');?></td><td colspan="3"><input type="submit" name="filtrecat" value="FILTRER"><br></form></td>
+       <td colspan="2"><form action="index.php?page=listingPost" method="post"><br>Catégorie</td><td colspan="4"><?=$Categories->blockSelectCategorie($catflt,'categorie');?></td><td colspan="3"><input type="submit" name="filtrecat" value="FILTRER"><br></form></td>
 
    </tr>
    <tr>
+   
+   
    </tr>
-   <tr>
-   </tr>
-   <tr>
-   </tr>
-    <tr>
-        <th>id</th>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Auteur</th>
-        <th>Note</th>
-        <th>Nombre de note</th>
-        <th>Nombre catégories</th>
-        <th>Status</th>
-        <th>Editer</th>
-    </tr>
+    
    </thead>
  
     <!-- affichage des éléments récuppérés dans le tableau -->
@@ -66,29 +56,56 @@ $impaire = false;
                 $impaire = false; }
             ?>
 
-
+            
         >
-            <td><?=$article['id']?></td>
-            <td><a href="index.php?page=article&article=<?=$article['id']?>"><?=$article['title']?></a></td>
-            <td><?=$article['content']?></td>
-            <td><?=$article['auteur']?></td>
-            <td ><?php
+            <td colspan="9"><a href="index.php?page=article&article=<?=$article['id']?>"><b> Titre : <?=$article['title']?></b></a></td>
+            </tr>
+            <tr>
+            <td colspan="9"><?=$article['content']?></td>  
+            </tr>
+            <tr>
+            <td colspan="3">ID : <?=$article['id']?></td>
+            <td colspan="3">Auteur : <?=$article['auteur']?></td>
+            <td colspan="3">Moyenne : <?php
                 $infoNote =  recupereNoteMoyenne($article['id']);echo $infoNote[0];?> /5 </td>
-            <td style="text-align: center"><a href="index.php?page=note&op=lire&id=<?=$article['id']?>" "><?php echo $infoNote[1];?></a> </td>
-            <td style="text-align: center">
+                </tr><tr>
+            <td colspan="3" style="text-align: left">Nb notes : <a href="index.php?page=note&op=lire&id=<?=$article['id']?>" "><?php echo $infoNote[1];?></a> </td>
+            <td colspan="3" style="text-align: left">
             <?php
                 $nbCat = $Categories->compteCategoriesArticle($article['id']);
             $txtcat = $Categories->listeCategoriesArticle($article['id']);
 
-                echo "<a href=\"\" onmouseOver=\"AffBulle('Categories associées', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
+                echo "Catégories associées : <a href=\"\" onmouseOver=\"AffBulle('Categories associées', '".$txtcat."', 250)\" onmouseOut=\"HideBulle()\">".$nbCat."</a>";
             ?>
 
             </td>
-            <td><?=$article['status']?></td>
-            <td><a href="index.php?page=editPost&id=<?=$article['id']?>">Editer</a></td>
-            <td><a href="index.php?page=suppPost&id=<?= $article['id'] ?>">Supprimer</a></td>
+            <td colspan="3">Etat : <?=$article['status']?></td>
+            </tr><tr style="background-color: #DDDD;">
+            <td colspan="3">&nbsp; </td>
+            <td colspan="3"></td>
+            <td colspan="3">
+                <?php
+                //******************************** Verif du role pour les boutons Editer Supprime */
+                if(isset($_SESSION['role_id']))
+                    {
+                    if ($_SESSION['role_id'] > 2)
+                        { ?>
+                            <a href="index.php?page=editPost&id=<?=$article['id']?>">&nbsp;   Editer   </a>
+                     &nbsp; &nbsp; &nbsp; 
+                <a href="index.php?page=suppPost&id=<?= $article['id'] ?>">Supprimer</a>
+                        <?php
+                        }
+                    }
+                    ?>
+            
+
+            </td>
 
         </tr>
+        <tr>
+   </tr>
+   <tr>
+   </tr>
         <?php } ?>
         <a id="back2Top" title="Back to top" href="#">&#10148;</a>
     </tbody>

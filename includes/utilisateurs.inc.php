@@ -57,6 +57,6 @@ $users = $query->fetchAll();
     <?php } ?>
     </tbody>
 </table>
-<form method="post" action="index.php?page=newUtilisateur">
+<form method="post" action="index.php?page=newUtilisateur" class="wrap2">
 <input type="submit" name="ajouter" value="Ajouter un utilisateur">
 </form>

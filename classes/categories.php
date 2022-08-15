@@ -4,10 +4,11 @@ class Categories
 {
     private array $categories;
     private array $tab_id_categories;
-    private string $sql_select = "SELECT nom, id FROM categories ORDER BY nom ASC";
+    private string $sql_select = "SELECT * FROM categories ORDER BY nom ASC";
+    private string $sql_select_categorie = "SELECT * FROM categories WHERE id= :id";
     private string $sql_insert = "INSERT INTO categories (nom, id_parent) VALUES (:nom, :id_parent)";
 
-    private string $sql_update = "UPDATE categories SET nom= :nom, id_parent= :nom  WHERE id= :id";
+    private string $sql_update = "UPDATE categories SET nom= :nom, id_parent= :id_parent  WHERE id= :id";
     private string $sql_delete = "DELETE FROM categories WHERE id = :id";
     private string $sql_insert_categorie_article = "INSERT INTO articles_has_categories (articles_id_articles, categories_id) VALUES (:id_article, :id_cat)";
     private string $sql_categories_article = "SELECT * FROM articles_has_categories WHERE articles_id_articles=:id_article";
@@ -57,8 +58,18 @@ class Categories
             $txtcat='';
             foreach ($this->tab_id_categories as $idcatA) {
                 $idcat = $idcatA['categories_id'];
-                $txt = $this->lireNomCategorie($idcat);
-                $txtcat = $txtcat . $txt . "<br>";
+                $cat = $this->lireCategorie($idcat);
+                $id_parent = $cat['id_parent'];
+                $txtcat = $this->lireNomCategorie($idcat);
+                //$txtcat = $txtcat . $txt . "<br>";
+                while($id_parent !=0)
+                {
+                    //echo "parent trouve";
+                    $cat_parent = $this->lireCategorie($id_parent);
+                    $nomparent = $cat_parent['nom'];
+                    $txtcat =$nomparent.' - '.$txtcat;
+                    $id_parent = $cat_parent['id_parent'];
+                }
             }
         }
         else {  $txtcat="Aucune";
@@ -100,7 +111,16 @@ class Categories
         $this->query->bindValue(':id_parent', $id_parent, PDO::PARAM_INT);
         $this->query->execute();
     }
-
+    public function lireCategorie($categorie_id)
+    {
+        global $pdo;
+        $this->query = $pdo->prepare($this->sql_select_categorie);
+        // INJECTION SQL
+        $this->query->bindValue(':id', $categorie_id, PDO::PARAM_INT);
+        $this->query->execute();
+        $categorie = $this->query->fetch();
+        return $categorie;
+    }
     public function lireNomCategorie($categorie_id)
     {
         $done = false;
@@ -115,6 +135,10 @@ class Categories
 
     }
 
+   
+   
+   
+   
     public function blockSelectCategorie($default,$element)
     {
         if ($element == "categorie"){
@@ -124,11 +148,24 @@ class Categories
         }
 
             foreach ($this->categories as $categorie) {
-                $opt = '<option value="' . $categorie['id'] . '"';
-                if ($categorie['id'] == $default) {
+                $id_parent=$categorie['id_parent'];
+                $id_orig = $categorie['id'];
+                $nomcat = $categorie['nom'];
+                while($id_parent !=0)
+                    {
+                        echo "parent trouve";
+                        $cat_parent = $this->lireCategorie($id_parent);
+                        $nomparent = $cat_parent['nom'];
+                        $nomcat =$nomparent.' - '.$nomcat;
+                        $id_parent = $cat_parent['id_parent'];
+                    }
+                
+
+                $opt = '<option value="' . $id_orig . '"';
+                if ($id_orig == $default) {
                     $opt = $opt . " selected";
                 }
-                $opt = $opt . ">" . $categorie['nom'] . "</option>";
+                $opt = $opt . ">" . $nomcat . "</option>";
                 echo $opt;
             }
 
